@@ -2,40 +2,88 @@
 var nameCheck=1;
 var ageCheck=1;
 var emailCheck=1;
+var dateofbirthcheck=1
 var contactCheck=1;
+var passwordcheck=1;
 
-
-
-
-
-function nameValidate(value)
+function nameValidate(name)
 {
-	var val=value;
-	var iChars = "!`#$%^&*+=-[]\\\';,/{}|\":<>?~"; 
-	nameCheck=1;
-	for (var i = 0; i < val.length; i++)
-	{
-		if (iChars.indexOf(val.charAt(i)) != -1)
-		nameCheck=0;
-		
-		
-		
-	}
-	if(val.length==0)
-	{
-		nameCheck=0;
-	}
-	if(nameCheck==0)
-	{
-		document.getElementById("nameCheck").innerHTML='<span class="alert-danger"><i class="icon-remove "></i>Not allowed</span>';
-	}
-	
-	if(nameCheck==1)
-	{
-		document.getElementById("nameCheck").innerHTML='<span class="alert-success"><i class="fa fa-check "></i></span>';
-		
-	}
+
+	var str=name.value;
+	 var textOnly = RegExp("^([a-zA-Z]| )+$");
+
+	 if(name.id=="username")
+	 {
+	 	
+	 	if(str=="")
+	 	{	
+	 		$("#span_user_name").html("*Username must be filled");
+	 		nameCheck=0;
+	 	}
+	 	else
+	 		$("#span_user_name").html("");
+
+	 }
+	  else if(name.id=="middlename")
+	 {
+ 		 if (str=="") 
+ 		 {
+ 		 	$("#span_middle_name").html("");
+ 		 	nameCheck=0;
+ 		 }     
+        else if (!textOnly.test(str)) 
+         {
+         	$("#span_middle_name").html("*Middle name must be characters only");
+         	nameCheck=0;
+         }
+         else
+         $("#span_middle_name").html("");
+
+	 }
+	 else if(name.id=="firstname")
+	 {
+ 		 if (str=="") 
+ 		 {
+ 		 	$("#span_first_name").html("*First name must be filled");     
+ 		 	nameCheck=0;
+ 		 }
+         else if (!textOnly.test(str)) 
+         {
+         	$("#span_first_name").html("*First name must be characters only");
+         	nameCheck=0;
+         }
+         else
+         $("#span_first_name").html("");
+
+	 }
+	 else if(name.id=="lastname")
+	 {
+ 		 if (str=="") 
+ 		 {
+ 		 	$("#span_last_name").html("*Last name must be filled");     
+ 		 	nameCheck=0;
+ 		 }
+         else if (!textOnly.test(str)) 
+         {
+         	$("#span_last_name").html("*Last name must be characters only");
+         	nameCheck=0;
+         }
+         else
+         $("#span_last_name").html("");
+
+	 }
+	 
+            
 }
+
+
+function check(state)
+    {
+      if(state.id=="gender_female")
+       document.getElementById("gender_male").checked=false;
+      if(state.id=="gender_male")
+        document.getElementById("gender_female").checked=false;
+ }
 
 function ageValidate(value)
 {
@@ -60,14 +108,16 @@ function ageValidate(value)
 		
 	}
 }
-function emailValidate(value)
+
+function emailValidate(val)
 {
+
 	emailCheck=1;
-var x=value;
-var length=value.length;
+var x=val.value;
+var length=x.length;
 var atpos=x.indexOf("@");
 var dotpos=x.lastIndexOf(".");
-  if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length )
+  if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
   	{
   	emailCheck=0;
   	}
@@ -78,105 +128,110 @@ var dotpos=x.lastIndexOf(".");
 	
   if(emailCheck==0)
 	{
-		document.getElementById("emailCheck").innerHTML='<span class="alert-danger"><i class="icon-remove"></i>Not a valid Email</span>';
+		 $("#span_email").html("*Invalid email");     
 	}
 	
 	if(emailCheck==1)
 	{
-		document.getElementById("emailCheck").innerHTML='<span class="alert-success"><i class="icon-ok "></i></span>';
 		
+	 $("#span_email").html("");     	
 	}
   
 }
 
-function contactValidate(value)
+function contactValidate(val)
 {	
-	var x=value.length;
+	var textOnly = RegExp("^([0-9])+$");
+	var y=val.value;
+	var x=y.length;
 	contactCheck=1;
-	if(x!=10||x==0)
+	if(x<10|| x>10||x==0 || !textOnly.test(y)) 
 	{
 		contactCheck=0;
 	}
+	
 	if(contactCheck==0)
 	{
-		document.getElementById("contactCheck").innerHTML='<span class="alert-danger"><i class="icon-remove"></i>Not Valid</span>';
+			 $("#span_contact").html("*Invalid contact No.");     	
 	}
 	
 	if(contactCheck==1)
 	{
-		document.getElementById("contactCheck").innerHTML='<span class="alert-success"><i class="icon-ok "></i></span>';
+	 $("#span_contact").html("");     	
 		
 	}
 }
 
+function passwordValidate(password)
+{
+
+	if(password.id=="userpassword_signup")
+	{
+		if(password.value.length==0)
+		 {
+		 	$("#span_userpassword_signup").html("*Password must be filled");
+		 	passwordcheck=0;
+		 }
+		else if(password.value.length<=6)
+		 {
+		 	$("#span_userpassword_signup").html("*Password length must be greater than 6");
+		 	passwordcheck=0;
+		 }
+		else
+		 $("#span_userpassword_signup").html("");	
+	}
+	if(password.id=="confirmpassword")
+	{
+		
+		if(password.value.length==0)
+		 {
+		 	$("#span_confirm_password").html("*Password must be filled");
+		 	$("#span_confirm_password").css("color","red");
+		 	passwordcheck=0;
+		 }
+		else if(password.value==document.getElementById("userpassword_signup").value)
+		 {
+		 	$("#span_confirm_password").html("*Password match");
+		 	$("#span_confirm_password").css("color","green");
+		 	passwordcheck=0;
+		 }
+
+		else if(password.value!=document.getElementById("userpassword_signup").value)
+		 {
+		 	
+		 	$("#span_confirm_password").html("*Password does not match");
+		 	$("#span_confirm_password").css("color","red");
+		 	passwordcheck=0;
+		 }
+		 else if(password.value.length<6)
+		 {
+		 	$("#span_confirm_password").html("*Password length must be greater than 6");
+		 	passwordcheck=0;
+		 }
+		else
+		 $("#span_confirm_password").html("");
+	}
+	if(password.id=="userpassword")
+	{
+		
+		 if(password.value.length==0)
+		 {
+		 	$("#span_userpassword").html("*Password must be filled");
+		 	passwordcheck=0;
+		 }
+		else
+		 $("#span_userpassword").html("");
+	}
+}
+
+
 
 function formValidate()
 {
-	if(nameCheck && ageCheck && emailCheck && contactCheck )
+	if(nameCheck  && emailCheck && contactCheck )
 	{
 		return true;
 	}
 	else
 	return false;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var flag=0;
-var nowTemp = new Date();
-var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
-$(function () 
-{
-	
-	
-	var checkin = $('#dp3').datepicker({
-    onRender: function(date) {
-    return date.valueOf() < now.valueOf() ? 'disabled' : '';
-    }
-    }).on('changeDate', function(ev) {
-		
-				
-	var newDate = new Date(ev.date)
-	newDate.setDate(newDate.getDate());
-	if(flag==0 || ev.date.valueOf() >= checkout.date.valueOf())
-	{
-		checkout.setValue(newDate);
-		flag=1;
-	}
-	else
-	{
-	checkout.setValue(checkout.date);
-	}
-
-	
-	
-checkin.hide();
-$('#dp4').focus();
-}).data('datepicker');
-	 
- 
-
-	
-	var checkout= $('#dp4').datepicker({
-    onRender: function(date) {
-    return date.valueOf() < checkin.date.valueOf() ? 'disabled' : '';
-    }
-    }).on('changeDate', function(ev) {
-checkout.hide();
-}).data('datepicker');
-	 
- 
-}); 
