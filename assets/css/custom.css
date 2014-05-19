@@ -1,0 +1,289 @@
+.nav-element
+{
+	height:50px;
+	width:100px;
+	padding-top:15px;
+}
+.nav-element:hover
+{
+	border-right:solid 1px #EAEAEA;
+	border-left:solid 1px #EAEAEA;
+	
+	background-color:#FBFBFB;
+	
+	color:#424242;
+}
+.nav-element-active
+{
+	border:solid 1px #EAEAEA;
+	background-color:#FBFBFB;
+	border-top:solid 2px #40bc80;
+	color:#424242;
+}
+.nav-element-active:hover
+{
+	border:solid 1px #EAEAEA;
+	background-color:#FBFBFB;
+	border-top:solid 2px #40bc80;
+	color:#424242;
+}
+.side-element
+{
+	padding-top:2px;
+	border-radius:0px;
+	height:20px;
+	
+}
+
+.side-element-active
+{
+	border-left:solid 5px #40bc80;
+	
+}
+
+.side-element:hover
+{
+	padding-top:2px;
+	height:20px;
+	background-color:#40bc80;
+	
+	text-decoration:none;
+	border-radius:0px;
+	color:#FFF;
+}
+.side-element-red
+{
+	padding-top:2px;
+	height:20px;
+	color:#ac0303;
+	border-radius:0px;
+}
+.side-element-red:hover
+{
+	padding-top:2px;
+	height:20px;
+	background-color:#ac0303;
+	text-decoration:none;
+	color:#FFF;
+	border-radius:0px;
+}
+
+
+
+.link
+{
+	color:#40bc80;
+	text-decoration:none;
+}
+
+.link:hover
+{
+	color:#2e885c;
+	text-decoration:none;
+}
+.link:active
+{
+	color:#2e885c;
+	text-decoration:none;
+}
+
+.aqua2
+{
+	color:#038a83;
+}
+.aqua
+{
+	color:#40bc80;
+}
+.aqua-dark
+{
+	color:#2e885c;
+}
+.purple
+{
+	color:#698ce8;
+}
+.pink
+{
+	color:#cd66ff;
+}
+.orange
+{
+	color:#f29302;
+}
+.black
+{
+	color:#000;
+}
+.yellow
+{
+	color:#ffd800;
+}
+
+.white
+{
+	color:#FFF;
+}
+.red
+{
+	color:#F00;
+}
+.blue
+{
+	color:#049cdb;
+}
+.grey
+{
+	color:#999;
+}
+.grey2
+{
+	color:#666;
+}
+
+
+.opaque8
+{
+	opacity:0.8;
+}
+
+.opaque9
+{
+	opacity:0.9;
+}
+
+.segoi
+{
+	font-family:"Segoe UI";
+}
+.sans
+{
+	font-family:"open Sans";
+}
+
+.font10
+{
+	font-size:10px;
+}
+.font12
+{
+	font-size:12px;
+}
+.font14
+{
+	font-size:14px;
+}
+.font16
+{
+	font-size:16px;
+}
+.font18
+{
+	font-size:18px;
+}
+.font20
+{
+	font-size:20px;
+}
+.font22
+{
+	font-size:22px;
+}
+
+.font24
+{
+	font-size:24px;
+}
+
+
+
+
+
+
+
+.none
+{
+	text-decoration:none;
+}
+
+#footer
+{
+	margin-top:850px;
+	height:50px;
+}
+
+.btn-aqua
+{
+	border-radius:0px;
+	background-color:#40bc80;
+	color:#FFF;
+}
+.btn-aqua:hover
+{
+	border-radius:0px;
+	background-color:#2e885c;
+	color:#FFF;
+}
+
+.form-control,.alert,.btn,.panel,.panel-group,.progress,.well,.modal-content,.input-group-addon
+{
+	border-radius:0px;
+}
+#accordian
+{
+	border-radius:0px;
+}
+.appointments:hover
+{
+	background-color:#EAEAEA;
+}
+.nav-header
+{
+	text-transform: uppercase;
+	
+	
+}
+.width200
+{
+	width:200px;
+}
+.width300
+{
+	width:300px;
+}
+.width400
+{
+	width:400px;
+}
+.width100
+{
+	width:100px;
+}
+.width50
+{
+	width:50px;
+}
+.width150
+{
+	width:150px;
+}
+.width250
+{
+	width:250px;
+}
+.btn-time
+{
+	width:70px;
+	margin-bottom:2px;
+}
+
+.homepage-tabs
+{
+	height:40px;
+	margin:10px;
+	margin-left:0px;
+	background:#40bc80;
+	color:#FFF;
+	padding:10px;
+	text-align:center
+}
