@@ -23,3 +23,4 @@ class Md_login extends CI_Model {
 		return 0;
 	}
 }
+?>

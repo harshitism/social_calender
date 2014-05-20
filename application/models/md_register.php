@@ -5,7 +5,7 @@ class Md_register extends CI_Model {
 			//call the model constructor
 			parent::__construct();
 	}
-	//function md_register called as md_register("first_name,middle_name,last_name,email,dob,contact,password,confirmed_password,gender")
+	//function md_register called as md_register("first_name,middle_name,last_name,email,dob,contact,password,gender")
 	public function md_register($params)
 	{
 		//all the arguements are considered as a string of user info separated by ",".
@@ -16,8 +16,8 @@ class Md_register extends CI_Model {
 		$exist = $this->db->query("SELECT * FROM user WHERE email = '".$info[3]."'");
 		if($exist->num_rows()==0)
 		{
-			//validate email and check if password and confirmed password are same
-			if(filter_var($info[3], FILTER_VALIDATE_EMAIL)/*&& $info[6]==$info[7]*/)
+			//validate email
+			if(filter_var($info[3], FILTER_VALIDATE_EMAIL))
 			{
 				$name = $info[0].$info[1].$info[2];
 				if(ctype_alpha($name))     //checks if name has only characters
@@ -32,7 +32,7 @@ class Md_register extends CI_Model {
 				return 0;				//return 0 if name is wrong
 			}
 			else
-			return 0;					//return 0 if email is not validated or password and confirmed password are different
+			return 0;					//return 0 if email is not validated
 		}
 		else
 		return 0;						//return 0 if this email id is already used
