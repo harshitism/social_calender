@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Register</title>
 <link rel="icon" href="img/kvirc.png" type="image/x-icon">
-<link href="css/bootstrap.css" rel="stylesheet">
+<link href="bootstrap.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-latest.min.js"
         type="text/javascript"></script>
 <script src="js/bootstrap.js"></script>
@@ -16,35 +16,44 @@
 
 	<div class="row">
 
-	<div class="col-md-5 well ">
-	<img src="C:\Users\vishalhanjagi\Desktop\image.jpg" alt="image was here" width="100" height="100" style="float:left">
-	</div>
+	<div class="col-md-6 well ">
+	<form class="form-horizontal" id="register" method='post' action='practice.php' alignment:right>
 
-	<div class="col-md-5 well ">
-	<form class="form-horizontal" id="register" method='post' action='register.php' alignment:right>
 	<fieldset>
 	
-	<div class="col-md-5 well">
-	<h2>Create an account</h2>&nbsp(or <a href="www.google.com">sign in</a>)
+	<div class="row">
+	<div class='col-md-12'>
+	<h2>Create an account</h2>
+	</div>
+	<div class='col-md-3'><br>
+	or <a href="www.google.com">sign in</a>
+	</div>
+
+	</div>
+	
+
+
+
+	<div class='col-md-4'>
+
+	&nbsp&nbsp&nbsp
+	<div class="form-group">
+	<label for="first name">First Name</label><br>
+	<input type="text"  name="firstname" maxlength="50" aria-required="true" placeholder="First Name" aria-label="First Name" /><br>
 	</div>
 
 	<div class="form-group">
-	<label for="first name">first name</label><br>
-	<input type="text"  name="firstname" maxlength="50" aria-required="1" placeholder="First Name" aria-label="First Name" /><br>
+	<label for="name name">Last name</label><br>
+	<input type="text"  name="lastname" maxlength="50" aria-required="true" placeholder="Last Name" aria-label="Last Name" /><br>
 	</div>
 
 	<div class="form-group">
-	<label for="name name">name name</label><br>
-	<input type="text"  name="lastname" maxlength="50" aria-required="1" placeholder="Last Name" aria-label="Last Name" /><br>
+	<label for="email id">Email</label><br>
+	<input type="email" name="email" maxlength="50" aria-required="true" placeholder="Email" aria-label="email" /><br>
 	</div>
 
 	<div class="form-group">
-	<label for="email id">email</label><br>
-	<input type="email" name="email" maxlength="50" aria-required="1" placeholder="Email" aria-label="email" /><br>
-	</div>
-
-	<div class="form-group">
-	<label for="password">password</label><br>
+	<label for="password">Password</label><br>
 	<input type="password" name="password" minl="5" placeholder="Password" id='pas' value="" / ><br><br>
 	</div>
 
@@ -55,9 +64,15 @@
 	</div>
 
 	<div class="form-group">
-	<button type="submit" class="btn btn-default">create account</button>
+	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	<button type="submit" class="btn btn-default">Create Account</button>
 	</div>
 
+	</div>
+	<div class='col-md-5'>
+	<img src="image.jpeg" alt='i will place an image' width="300px" height ='300px'>
+	</div>
 
 	</form>
 	</fieldset>
