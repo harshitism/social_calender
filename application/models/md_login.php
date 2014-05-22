@@ -1,10 +1,13 @@
 <?php
+//this model is used to authenticate the user which is trying to login by checking if given username and passwords are same.
 class Md_login extends CI_Model {
 
 	public function __construct()
 	{
+		//model constructor
 		parent::__construct();
 	}
+	//function md_login used to obtain user_id of a user if he entered correct username and password otherwise it returns 0.
 	public function md_login($params)
 	{
 		$login = explode(",",$params);

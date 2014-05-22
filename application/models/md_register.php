@@ -1,11 +1,12 @@
 <?php
+//Model md_register validates name and email of the user whether it is according to database or not and inserts info of the user in table user.
 class Md_register extends CI_Model {
 	public function __construct()
 	{
 			//call the model constructor
 			parent::__construct();
 	}
-	//function md_register called as md_register("first_name,middle_name,last_name,email,dob,contact,password,gender")
+	//function md_register called as md_register("first_name,middle_name,last_name,email,dob,contact,password,gender"), used to insert info of the user in the database which is trying to register.
 	public function md_register($params)
 	{
 		//all the arguements are considered as a string of user info separated by ",".

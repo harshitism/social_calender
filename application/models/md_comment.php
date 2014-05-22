@@ -1,4 +1,5 @@
 <?php
+// this file is used to add, delete, update or retrieve cooments of an event in the database.
 class Md_comment extends CI_Model {
 
 	public function __construct()
@@ -33,18 +34,15 @@ class Md_comment extends CI_Model {
 		else
 		return 0;
 	}
-	//function del_comment to delete a comment of current user to an event. takes arguments ("user_id,event_id,time")
-	public function del_comment($params)
+	//function del_comment to delete a comment of current user to an event. takes arguments ("comment_id")
+	public function del_comment($comment_id)
 	{
 		$this->load->database();
-		$info = explode(",",$params);
 		//check if this comment exists.
-		$exist = $this->db->query("SELECT comment_id FROM comment_user WHERE user_id = '".$info[0]."' AND event_id = '".$info[1]."' AND date_time = '".$info[2]."'");
+		$exist = $this->db->query("SELECT * FROM comment_user WHERE comment_id = '".$comment_id."'");
 		$res = $exist->row();
 		if($exist->num_rows()!=0)
 		{
-			//get comment_id of this comment
-			$comment_id = $res->comment_id;
 			//delete from comment_details
 			$this->db->query("DELETE FROM comment_details WHERE comment_id = '".$comment_id."'");
 			//delete from comment_user
@@ -54,22 +52,20 @@ class Md_comment extends CI_Model {
 		else
 		return 0;
 	}
-	//function edit_comment to update a comment of current user to an event. takes arguments ("newcomment,user_id,event_id,oldtime")
+	//function edit_comment to update a comment of current user to an event. takes arguments ("newcomment,comment_id")
 	public function edit_comment($params)
 	{
 		$this->load->database();
 		$info = explode(",",$params);
 		//check if this comment exists.
-		$exist = $this->db->query("SELECT comment_id FROM comment_user WHERE user_id = '".$info[1]."' AND event_id = '".$info[2]."' AND date_time = '".$info[3]."'");
+		$exist = $this->db->query("SELECT * FROM comment_user WHERE comment_id = '".$info[1]."'");
 		$res = $exist->row();
 		if($exist->num_rows()!=0)
 		{
-			//get comment_id of this comment
-			$comment_id = $res->comment_id;
-			$this->db->query("UPDATE comment_details SET comment = '".$info[0]."' WHERE comment_id = '".$comment_id."'");
+			$this->db->query("UPDATE comment_details SET comment = '".$info[0]."' WHERE comment_id = '".$info[1]."'");
 			//update time of comment in comment_user
 			$newtime = date('m/d/Y h:i:s a', time());
-			$this->db->query("UPDATE comment_user SET time = '".$newtime."' WHERE comment_id = '".$comment_id."'");
+			$this->db->query("UPDATE comment_user SET date_time = '".$newtime."' WHERE comment_id = '".$info[1]."'");
 			return 1;
 		}
 		else
@@ -93,6 +89,7 @@ class Md_comment extends CI_Model {
 			$result[$i]['user_id'] = $nrow->user_id;
 			$result[$i]['comment'] = $comment;
 			$result[$i]['time'] = $nrow->date_time;
+			$result[$i]['comment_id'] = $nrow->comment_id;
 			$i++;
 		}
 		return $result;
