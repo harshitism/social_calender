@@ -32,7 +32,8 @@ class Login extends CI_Controller{
 		
 		if ($this->form_validation->run() == FALSE)
 		{
-			$this->load->view('loginpage');
+			$this->load->view('login');
+			
 		}
 		else
 		{

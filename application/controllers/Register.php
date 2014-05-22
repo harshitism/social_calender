@@ -1,6 +1,7 @@
 <?php
 class Register extends CI_Controller{
-function index()
+	
+	function index()
 	{
 		$this->load->helper(array('form', 'url'));
 		
