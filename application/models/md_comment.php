@@ -34,7 +34,8 @@ class Md_comment extends CI_Model {
 		else
 		return 0;
 	}
-	//function del_comment to delete a comment of current user to an event. takes arguments ("comment_id")
+	//function del_comment to delete a comment of current user to an event. takes arguments ("comment_id"). 
+	//comment_id of a comment is obtained by function get_comment(event_id) discussed later in this file.
 	public function del_comment($comment_id)
 	{
 		$this->load->database();
@@ -72,7 +73,7 @@ class Md_comment extends CI_Model {
 		return 0;
 	}
 	//function get_comment to extract all comments of an event. takes one argument (event_id)
-	//returns a 2-D array containing user_id,comment and time of each comment
+	//returns a 2-D array containing user_id,comment, date_time and comment_id of each comment
 	public function get_comment($event_id)
 	{
 		$i = 0;
