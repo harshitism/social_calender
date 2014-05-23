@@ -32,13 +32,21 @@ class Login extends CI_Controller{
 		
 		if ($this->form_validation->run() == FALSE)
 		{
-			$this->load->view('login');
+			$data['uname_error']="Incorrect Username Type";
+			$this->load->view('login',$data);
 			
 		}
 		else
 		{
-			echo 'form submitted';
-			$this->load->model('md_login','',$parameter);
+			$this->load->model('md_login');
+			$data['user_id']=$this->md_login->login($parameter['user_name'],$parameter['password']);
+			if($data['user_id']==0)
+			{
+				$data['uname_error']="Incorrect Username & Password Combination";
+				$this->load->view('login',$data);
+			}
+			else
+			$this->load->view('done',$data);
 		}
 	}
 

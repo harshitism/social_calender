@@ -21,10 +21,11 @@ class Start extends CI_Controller {
 	{
 		$this->load->view('login');
 	}
-	public function index2()
+	public function forgot()
 	{
-		echo "Hi";
+		$this->load->view('forgot_password');
 	}
+	
 }
 
 /* End of file welcome.php */

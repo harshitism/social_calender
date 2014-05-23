@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <title>Forgot Password</title>
-<link href="./assets/css/custom.css" rel="stylesheet">
-<link href="./assets/css/bootstrap.css" rel="stylesheet">
+<link href="<?php echo $this->config->base_url();?>assets/css/custom.css" rel="stylesheet">
+<link href="<?php echo $this->config->base_url();?>assets/css/bootstrap.css" rel="stylesheet">
 </head>
  
 <body  style="background-image:url('./img/2.jpg');">

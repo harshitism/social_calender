@@ -72,12 +72,12 @@
 
                 <!--Link for Forgot Passwor-->
                     <div class="form-group">
-                        <a class="a" href="forgot_password.html">Forgot Password?</a>
+                        <a class="a" href="<?php echo $this->config->base_url();?>index.php/Start/forgot">Forgot Password?</a>
                     </div>
             
                 <!--submit button for sign in-->
                     <div class="form-group">
-                      <button type="submit" id="signin" name="sign_in" class="btn btn-primary">Sign in</button>
+                      <button type="submit" id="signin" name="sign_in" class="btn btn-primary">Sign in</button> <span class="red font12">*<?php echo $uname_error;?></span>
                     </div>
                    </form>
                 </div>
