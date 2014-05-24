@@ -67,30 +67,23 @@
 <body>
 
 <div id="container">
-	<h1><?php
-	if(isset($user_id))
-	{
-		echo "logged in with user_id = ".$user_id."";
-		?>
-		<div class="form-group">
-                        <a class="a" href="<?php echo $this->config->base_url();?>index.php/following/extract_following/<?php echo $user_id;?>">extract followings</a>
-                        <br>
-                         <a class="a" href="<?php echo $this->config->base_url();?>index.php/follower/extract_follower/<?php echo $user_id;?>">extract followers</a>
-                    </div><?php
-	}
-	else if(isset($arr)) {echo "Followings are :"; foreach($arr as $row)
-	{
-		echo $row->following_id."<br>";
-	}
-;}
-else  {echo "Followers are :"; foreach($newarr as $row)
-	{
-		echo $row->follower_id."<br>";
-	}
-;}
+	<h1><?php echo $succ;
 ?></h1>
 
-	
+	<div id="body">
+		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
+
+		<p>If you would like to edit this page you'll find it located at:</p>
+		<code>application/views/welcome_message.php</code>
+
+		<p>The corresponding controller for this page is found at:</p>
+		<code>application/controllers/welcome.php</code>
+
+		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
+	</div>
+
+	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>
+</div>
 
 </body>
 </html>

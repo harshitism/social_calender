@@ -32,8 +32,9 @@ class Register extends CI_Controller{
 			$this->load->view('register');
 		}
 		else
-		{	
-			$this->load->model('md_login','',$parameter);
+		{
+			$param = implode(",",$parameter);	
+			$this->load->model('md_register','',$parameter);
 		}
 	}
 }

@@ -11,7 +11,9 @@ class Md_follower extends CI_Model {
 	public function extract_follower($user_id)
 	{
 		$this->load->database();
-		$ext = $this->db->query("SELECT follower_id FROM follower WHERE user_id = '".$user_id."'");
+		$this->db->where('user_id',$user_id);
+		$this->db->select('follower_id');
+		$ext = $this->db->get('follower');
 		$arr = $ext->result();
 		return $arr;
 	}

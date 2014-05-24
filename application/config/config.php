@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost:8080/github/social_calender/';
+$config['base_url']	= '';
 
 /*
 |--------------------------------------------------------------------------

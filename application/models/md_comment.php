@@ -17,15 +17,19 @@ class Md_comment extends CI_Model {
 		if($info[0]!="")
 		{
 			//insert the user and event info into comment_user. a comment_id will be automatically assigned.
-			$query = $this->db->query("INSERT INTO comment_user (user_id,event_id,date_time) VALUES ('".$info[1]."','".$info[2]."','".$info[3]."')");
+			$array = array('user_id' => $info[1], 'event_id' => $info[2], 'date_time' => $info[3]);
+			$query = $this->db->insert('comment_user',$array);
 			if($this->db->affected_rows() == 1)
 			{
 				//extract assigned comment_id.
-				$newquery = $this->db->query("SELECT comment_id FROM comment_user WHERE user_id = '".$info[1]."' AND event_id = '".$info[2]."' AND time = '".$info[3]."'");
+				$this->db->where($array);
+				$this->db->select('comment_id');
+				$newquery = $this->db->get('comment_user');
 				$res = $newquery->row();
 				$comment_id = $res->comment_id;
 				//now insert the comment into comment_details.
-				$this->db->query("INSERT INTO comment_details VALUES ('".$comment_id."','".$info[0]."')");
+				$newarr = array('comment_id' => $comment_id, $comment => $info[0]);
+				$this->db->insert('comment_details',$newarr);
 				return 1;
 			}
 			else
@@ -34,20 +38,23 @@ class Md_comment extends CI_Model {
 		else
 		return 0;
 	}
-	//function del_comment to delete a comment of current user to an event. takes arguments ("comment_id"). 
-	//comment_id of a comment is obtained by function get_comment(event_id) discussed later in this file.
+	//function del_comment to delete a comment of current user to an event. takes arguments ("comment_id")
 	public function del_comment($comment_id)
 	{
 		$this->load->database();
 		//check if this comment exists.
-		$exist = $this->db->query("SELECT * FROM comment_user WHERE comment_id = '".$comment_id."'");
+		$this->db->where('comment_id',$comment_id);
+		$this->db->select('*');
+		$exist = $this->db->get('comment_user');
 		$res = $exist->row();
 		if($exist->num_rows()!=0)
 		{
 			//delete from comment_details
-			$this->db->query("DELETE FROM comment_details WHERE comment_id = '".$comment_id."'");
+			$this->db->where('comment_id',$comment_id);
+			$this->db->delete('comment_details');
 			//delete from comment_user
-			$this->db->query("DELETE FROM comment_user WHERE comment_id = '".$comment_id."'");
+			$this->db->where('comment_id',$comment_id);
+			$this->db->delete('comment_user');
 			return 1;
 		}
 		else
@@ -59,31 +66,41 @@ class Md_comment extends CI_Model {
 		$this->load->database();
 		$info = explode(",",$params);
 		//check if this comment exists.
-		$exist = $this->db->query("SELECT * FROM comment_user WHERE comment_id = '".$info[1]."'");
+		$this->db->where('comment_id',$info[1]);
+		$this->db->select('*');
+		$exist = $this->db->get('comment_user');
 		$res = $exist->row();
 		if($exist->num_rows()!=0)
 		{
-			$this->db->query("UPDATE comment_details SET comment = '".$info[0]."' WHERE comment_id = '".$info[1]."'");
+			$arr = array('comment' => $info[0]);
+			$this->db->where('comment_id',$info[1]);
+			$this->db->update('comment_details',$arr);
 			//update time of comment in comment_user
 			$newtime = date('m/d/Y h:i:s a', time());
-			$this->db->query("UPDATE comment_user SET date_time = '".$newtime."' WHERE comment_id = '".$info[1]."'");
+			$newarr = array('date_time' => $newtime);
+			$this->db->where('comment_id',$info[1]);
+			$this->db->update('comment_user',$newarr);
 			return 1;
 		}
 		else
 		return 0;
 	}
 	//function get_comment to extract all comments of an event. takes one argument (event_id)
-	//returns a 2-D array containing user_id,comment, date_time and comment_id of each comment
+	//returns a 2-D array containing user_id,comment and time of each comment
 	public function get_comment($event_id)
 	{
 		$i = 0;
 		$result = array();
 		$this->load->database();
-		$query = $this->db->query("SELECT * FROM comment_user WHERE event_id = '".$event_id."'");
+		$this->db->where('event_id',$event_id);
+		$this->db->select('*');
+		$query = $this->db->get('comment_user');
 		$row = $query->result();
 		foreach($row as $nrow)
 		{
-			$comm_query = $this->db->query("SELECT comment FROM comment_details WHERE comment_id = '".$nrow->comment_id."'");
+			$this->db->where('comment_id',$nrow->comment_id);
+			$this->db->select('comment');
+			$comm_query = $this->db->get('comment_details');
 			$comm = $comm_query->row();
 			$comment = $comm->comment;
 			$result[$i] = array();
@@ -94,6 +111,21 @@ class Md_comment extends CI_Model {
 			$i++;
 		}
 		return $result;
+	}
+	//function get_commentid used to retreive comment_id from user_id,event_id,time
+	public function get_commentid($params)
+	{
+		$this->load->database();
+		$info = explode(",",$params);
+		$array = array('user_id' => $info[0], 'event_id' => $info[1], 'date_time' => $info[3]);
+		$this->db->where($array);
+		$this->db->select('comment_id');
+		$cid = $this->db->get('comment_user');
+		foreach( $cid->result() as $row)
+		{
+			return $row->comment_id;
+		}
+		return 0;
 	}
 }
 ?>
