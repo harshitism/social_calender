@@ -13,71 +13,86 @@
 
 <body>
 	<div class="container">
+		<div class="row">
 
-	<div class="row">
+			<div class="col-md-6 well ">
+			<form class="form-horizontal" id="register" method='post' action='practice.php' alignment:right>
 
-	<div class="col-md-6 well ">
-	<form class="form-horizontal" id="register" method='post' action='practice.php' alignment:right>
-
-	<fieldset>
+			<fieldset>
 	
-	<div class="row">
-	<div class='col-md-12'>
-	<h2>Create an account</h2>
-	</div>
-	<div class='col-md-3'><br>
-	or <a href="www.google.com">sign in</a>
-	</div>
-
-	</div>
+				<div class="row">
+					<div class='col-md-6'>
+					<h2>Create an account</h2>
+					</div>
+					<div class='col-md-4'>
+					<h2>(or <a href="www.google.com">sign in</a>)</h2>
+					</div>
+				</div>
 	
 
 
 
-	<div class='col-md-4'>
+				<div class='col-md-9'>
 
-	&nbsp&nbsp&nbsp
-	<div class="form-group">
-	<label for="first name">First Name</label><br>
-	<input type="text"  name="firstname" maxlength="50" aria-required="true" placeholder="First Name" aria-label="First Name" /><br>
+				&nbsp&nbsp&nbsp
+				<div class="form-group">
+				<label for="first_name">First Name</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				<input type="text"  name="first_name" maxlength="50" aria-required="true" placeholder="First Name" aria-label="First Name" /><br>
+				</div>
+
+				<div class="form-group">
+				<label for="middle_name">Middle Name</label>&nbsp&nbsp&nbsp&nbsp
+				<input type="text"  name="first_name" maxlength="50" aria-required="true" placeholder="Middle Name" aria-label="First Name" /><br>
+				</div>
+
+				<div class="form-group">
+				<label for="last_name">Last name</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				<input type="text"  name="lastname" maxlength="50" aria-required="true" placeholder="Last Name" aria-label="Last Name" /><br>
+				</div>
+
+				<div class="form-group">
+				<label for="email id">Email</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				<input type="email" name="email" maxlength="50" aria-required="true" placeholder="Email" aria-label="email" /><br>
+				</div>
+
+				<div class="form-group">
+				<label for="dob">DOB</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				<input type="date"  name="dob" maxlength="50" aria-required="true" placeholder="Date of Birth" aria-label="First Name" /><br>
+				</div>
+
+				<div class="form-group">
+				<label for="password">Password</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				<input type="password" name="password" minl="5" placeholder="Password" id='pas' value="" / ><br><br>
+				</div>
+
+				<div class="form-group">
+				<label for="gender">gender</label><br>
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				<input type="radio"  name="gender" value="m">MALE<br>
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				<input type="radio"  name="gender" value="f">FEMALE<br>
+				</div>
+
+				<div class="checkbox">
+				<label>
+				<input type="checkbox" name="agree" value="I agree">I agree to <a href="www.google.com">Dropbox Terms</a><br><br>
+				</label>
+				</div>
+
+				<div class="form-group">
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				<button type="submit" class="btn btn-default">Create Account</button>
+				</div>
+
+
+			</form>
+			</fieldset>
+		</div>
 	</div>
 
-	<div class="form-group">
-	<label for="name name">Last name</label><br>
-	<input type="text"  name="lastname" maxlength="50" aria-required="true" placeholder="Last Name" aria-label="Last Name" /><br>
-	</div>
-
-	<div class="form-group">
-	<label for="email id">Email</label><br>
-	<input type="email" name="email" maxlength="50" aria-required="true" placeholder="Email" aria-label="email" /><br>
-	</div>
-
-	<div class="form-group">
-	<label for="password">Password</label><br>
-	<input type="password" name="password" minl="5" placeholder="Password" id='pas' value="" / ><br><br>
-	</div>
-
-	<div class="checkbox">
-	<label>
-	<input type="checkbox" name="agree" value="I agree">I agree to <a href="www.google.com">Dropbox Terms</a><br><br>
-	</label>
-	</div>
-
-	<div class="form-group">
-	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-	<button type="submit" class="btn btn-default">Create Account</button>
-	</div>
-
-	</div>
-	<div class='col-md-5'>
-	<img src="image.jpeg" alt='i will place an image' width="300px" height ='300px'>
-	</div>
-
-	</form>
-	</fieldset>
-	</div>
-	</div>
 	<hr>
 <table style="text-align:center; font-size:16px; color:rgba(0,0,0,1);" align="left">
 
