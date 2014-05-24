@@ -25,6 +25,10 @@ class Start extends CI_Controller {
 	{
 		$this->load->view('forgot_password');
 	}
+	public function profile()
+	{
+		$this->load->view('profile');
+	}
 	
 }
 

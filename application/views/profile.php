@@ -10,8 +10,8 @@
     <title>User Profile</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="./assets/css/bootstrap.css" rel="stylesheet" >
-    <link href="./assets/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="<?php echo $this->config->base_url();?>assets/css/bootstrap.css" rel="stylesheet" >
+    <link href="<?php echo $this->config->base_url();?>assets/css/bootstrap.min.css" rel="stylesheet" >
 
     <!-- Add custom CSS here -->
     <style type="text/css">
