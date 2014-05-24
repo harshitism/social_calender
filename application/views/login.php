@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 <title>Log In Form</title>
-<link href="./assets/css/custom.css" rel="stylesheet">
-<link href="./assets/css/bootstrap-datetimepicker.css">
-<link href="./assets/css/bootstrap.css" rel="stylesheet">
+<link href="<?php echo $this->config->base_url();?>assets/css/custom.css" rel="stylesheet">
+<link href="<?php echo $this->config->base_url();?>assets/css/bootstrap-datetimepicker.css">
+<link href="<?php echo $this->config->base_url();?>assets/css/bootstrap.css" rel="stylesheet">
 </head>
  
 <body style="background-image:url('./img/4.jpg');">
@@ -21,14 +21,17 @@
           <div style="margin-top:150px">
             <h2>Welcome to Social Calendar.</h2>
               Start a conversation, explore your interests, and be in the know.<br><br>
+              <!-- Nav tabs -->
+
+
+
           </div>
       </div>
     
 
     <div class="col-md-4 well">
     
-        <form name="user_form" class="form-horizontal"action="" method="post" onsubmit="formValidate()">
-            <fieldset>
+        
                 <legend> 
                   <ul class="nav nav-tabs">
                   <li class="active" style="width:150px"><a class="a" href="#login" data-toggle="tab">Sign In</a></li>
@@ -36,23 +39,24 @@
                 </ul>
                </legend>
 
-            <div id="myTabContent" class="tab-content panel-body ">
+            <div id="myTabContent" class="tab-content panel-body">
                 
                 <!-- div for Sign In part-->
 
-                  <div class="tab-pane  active in" id="login">      
-                
+                  <div class="tab-pane active in" id="login">      
+                		<form name="user_form" class="form-horizontal" action="<?php echo $this->config->base_url();?>index.php/login/" method="post" onsubmit="formValidate()">
+            
                 <!--User Name-->    
                       <div class="form-group">
                           <label for="username" class="col-sm-2 control-label"></label>
-                            <input type="text" class="form-control"  id="username" name="user_name" placeholder="User Name" name="user_name" onkeyup="nameValidate(this)" >
+                            <input type="text" class="form-control"  id="username"  placeholder="User Name" name="user_name" onkeyup="nameValidate(this)" >
                               <span class="red font12" id="span_user_name" ></span> 
                       </div>
 
                 <!--Password-->
                       <div class="form-group">
                          <label for="userpassword_signin" class="col-sm-2 control-label"></label>
-                            <input type="password" class="form-control" id="userpassword_signin" name="user_password" placeholder="Password" name="user_password_sign" onkeyup="passwordValidate(this)">
+                            <input type="password" class="form-control" id="userpassword_signin" name="password" placeholder="Password" onkeyup="passwordValidate(this)">
                             <span class="red font12" id="span_userpassword" ></span>
                       </div>
                       
@@ -68,14 +72,14 @@
 
                 <!--Link for Forgot Passwor-->
                     <div class="form-group">
-                        <a class="a" href="forgot_password.html">Forgot Password?</a>
+                        <a class="a" href="<?php echo $this->config->base_url();?>index.php/Start/forgot">Forgot Password?</a>
                     </div>
             
                 <!--submit button for sign in-->
                     <div class="form-group">
-                      <button type="submit" id="signin" name="sign_in" class="btn btn-primary">Sign in</button>
+                      <button type="submit" id="signin" name="sign_in" class="btn btn-primary">Sign in</button> <span class="red font12">*<?php echo $uname_error;?></span>
                     </div>
-                
+                   </form>
                 </div>
             
                 
@@ -168,8 +172,7 @@
             </div>
 
         </div>
-      </fieldset>
-    </form>                
+                  
 </div>
 
       <!--Footer-->
@@ -186,8 +189,6 @@
     </div>
 </body>
 <script src="./assets/js/validations.js"></script>
-<script src="http://code.jquery.com/jquery-latest.min.js"
-        type="text/javascript"></script>
 <script src="./assets/js/bootstrap.js"></script>        
 <script src="./assets/js/jquery-1.9.0.min.js"></script>
 <script src="./assets/js/bootstrap-datepicker.js"></script>

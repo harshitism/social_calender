@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "homepage";
+$route['default_controller'] = "Start";
 $route['404_override'] = '';
 
 
