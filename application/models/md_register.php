@@ -13,9 +13,10 @@ class Md_register extends CI_Model {
 		//explode function is used to fetch distinct info from $params.
 		$this->load->database();
 		$info = explode(",",$params);
-		//check if a user is registered with this email id
-		$exist = $this->db->query("SELECT * FROM user WHERE email = '".$info[3]."'");
-		if($exist->num_rows()==0)
+		//check if a user is registered with this email id or phone
+		$email_exist = $this->db->query("SELECT * FROM user WHERE email = '".$info[3]."'");
+		$phone_exist = $this->db->query("SELECT * FROM user WHERE contact = '".$info[5]."'");
+		if($email_exist->num_rows()==0&&$phone_exist->num_rows()==0)
 		{
 			//validate email
 			if(filter_var($info[3], FILTER_VALIDATE_EMAIL))

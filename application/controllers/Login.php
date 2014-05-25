@@ -16,6 +16,7 @@ class Login extends CI_Controller{
 		$this->load->helper(array('form', 'url'));
 		
 		$this->load->library('form_validation');		//importing validation library
+		
 		$parameter = array(
 		'user_name' => $this->input->post('user_name'),
 		'password'=> $this->input->post('password')
@@ -46,6 +47,9 @@ class Login extends CI_Controller{
 			}
 			else
 			{
+				$this->load->library('session');
+				$array = array('user_name' => $parameter['user_name'], 'user_id' => $data['user_id']);
+				$this->session->set_userdata($array);
 				$this->load->view('done',$data);
 			}
 		}

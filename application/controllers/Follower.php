@@ -4,15 +4,15 @@ Name : Follower
 */
 
 class Follower extends CI_Controller{
-	public function __construct()
-		{
-			parent::__construct();
-		}
+	/*	function index()
+	{
+		$this->load->view('follower');
+	}*/
 	/* function which loads followers of a given user_id to view "follower"*/
-function extract_follower($user_id)
+function extract_follower()
 	{
 		$this->load->model('Md_follower');
-		$newarr = array('newarr' => $this->Md_follower->extract_follower($user_id));
+		$newarr = array('newarr' => $this->Md_follower->extract_follower());
 		$this->load->view('done',$newarr);
 	}
 }
