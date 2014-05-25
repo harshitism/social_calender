@@ -4,33 +4,49 @@ class Md_how_to_reach extends CI_Model{
 		parent::__construct(); //calls the constructer 
 	}
 	
-	/*
-	function insert_how_to_reach gets  parameters as a string separated by , as inputs 
-	assuming that the input is in order event_id,latitude,longitude,event_date 
-	*/
-	public function insert_how_to_reach($params){
+	/*function insert_how_to_reach_how_to_reach gets a parameter array as inputs 
+		assuming the inputs are in order id,latitude,longitude,event_date
+		it inserts these values in how_to_reach table
+		*/
+	public function insert_how_to_reach($parameter){
 		$this->load->database();
 		$this->load->library('table');
-		$data=explode(",",$params);
-		
-		$query=$this->db->query("INSERT INTO how_to_reach (event_id,latitude,longitude,event_date) VALUES('".$data[0]."','".$data[1]."','".$data[2]."','".$data[3]."')");
-		if($this->db->affected_rows() ==1)
+		$data=array(
+		'event_id'=>$parameter[0],
+		'latitude'=>$parameter[1],
+		'longitude'=>$parameter[2],
+		'event_date'=>$parameter[3]
+		);
+		$this->db->insert('how_to_reach',$data);
+	
+		if($this->db->affected_rows() ==1){
+			//$this->load->view('tsucc');
 			return 1;
+		}
+		else{
+		return 0;
+		}
 	
 	}
 	
-	/*
-	function edit_how_to_reach edits or updates the how_to_reach table 
-	function edit_how_to_reach gets  parameters as a string separated by , as inputs 
-	assuming that the input is in order event_id,latitude,longitude,event_date 
-	*/
-	public function edit_how_to_reach($params){
+	/*function edit_how_to_reach gets a parameter array as inputs 
+		assuming the inputs are in order id,latitude,longitude,event_date
+		it edits or updates these values in how_to_reach table
+		*/
+	public function edit_how_to_reach($parameter){
 		$this->load->database();
 		$this->load->library('table');
-		$data=explode(",",$params);
+		$data=array(
+		'event_id'=>$parameter[0],
+		'latitude'=>$parameter[1],
+		'longitude'=>$parameter[2],
+		'event_date'=>$parameter[3]
+		);
 		
-		$query=$this->db->query("UPDATE how_to_reach SET event_id='".$data[0]."' AND latitude='".$data[1]."' AND longitude='".$data[2]."' event_date='".$data[3]."'");
+		$this->db->where('event_id',$parameter[0]);
+		$this->db->update('how_to_reach',$data);
 		if($this->db->affected_rows() ==1){
+			//$this->load->view('tupsucc');
 			return 1;
 		}
 		else{
@@ -39,15 +55,16 @@ class Md_how_to_reach extends CI_Model{
 	
 	}
 	
-	/** function delete_how_to_reach takes event_id as argument
-		$id -> event id of the event to be deleted
-		and deletes the row with that event_id in table how_to_reach
+	/*function delete_how_to_reach gets id  as parameter  
+		it deletes the rows from having event_id=$id from the how_to_reach table  
 	*/
 	public function delete_how_to_reach($id) {
 		$this->load->database();
 		$this->load->library('table');
-		$query = $this->db->query("DELETE FROM how_to_reach WHERE event_id='".$id."'");
+		$this->db->where('event_id',$id);
+		$this->db->delete('how_to_reach');
 		if($this->db->affected_rows() ==1){
+			//$this->load->view('twsucc');
 			return 1;
 		}
 		else{
@@ -55,12 +72,16 @@ class Md_how_to_reach extends CI_Model{
 		}
 	}
 	
-	//function show_how_to_reach displays the how_to_reach table 
+	/*function show_how_to_reach displays the contents of how_to_reach table in
+		a tabular form
+	*/
 	public function show_how_to_reach()
 	{
-	$this->load->database();
-	$query =$this->db->query(SELECT * FROM how_to_reach);
-	$this->load->library('table');
-	echo $this->table->generate($query);
+		$this->load->database();
+    $this->load->library('table');
+    		$query = $this->db->query("SELECT * FROM how_to_reach");
+
+		echo $this->table->generate($query); 
 	}
 }
+?>
