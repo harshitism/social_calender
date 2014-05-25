@@ -5,17 +5,23 @@
 	}
 	/*
 	function insert_photo gets parameters as a string separated by , as inputs 
-	assuming that the order of input is event_id,added_by,path
-	photo_id and date_added are generated itself automatically
+	assuming that the order of input is event_id,added_by,path,date_added
+	photo_id is generated itself automatically
 	*/
-	public function insert_photo($params){
+	public function insert_photo($parameter){
 		$this->load->database();
 		$this->load->library('table');
+		$date=date('m/d/Y h:i:s a', time());   
+		$data=array(
+		'event_id'=>$parameter[0],
+		'added_by'=>$parameter[1],
+		'path'=>$parameter[2],
+		'date_added'=>$date
+		);
 		
-		$data=explde(",",$params);
-		$data[4] = date('m/d/Y h:i:s a', time());
-		$query=$this->db->query("INSERT INTO photo (event_id,added_by,path,date_added) VALUES('".$data[1]."','".$data[2]."','".$data[3]."','".$data[4]."')");
+		$this->db->insert('photo',$data);
 		if($this->db->affected_rows() == 1){
+			//$this->load->view('tsucc');
 			return 1;
 		}
 		else{
@@ -24,18 +30,26 @@
 	}
 	
 	/*
-		function edit_photo gets parameters as a string separated by , as inputs 
-		assuming inputs are in order event_id,added_by,path
-		it edits or updates the photo table
+	function edit_photo gets parameters as a string separated by , as inputs 
+	assuming that the order of input is photo_id,event_id,added_by,path,date_added
+	it edits or updates these values in the photo table 
 	*/
-	public function edit_photo($params){
+	public function edit_photo($parameter){
 		$this->load->database();
 		$this->load->library('table');
-		
-		$data=explode(",",$params);
-		$new_time = date('m/d/Y h:i:s a', time());
-		$query=$this->db->query("UPDATE photo SET photo_id='".$data[0]."' AND event_id='".$data[1]."' AND added_by='".$data[2]."' AND path='".$data[3]."' AND date_added='".$new_time."' WHERE photo_id='".$data[0]."'");
+		$date=date('m/d/Y h:i:s a', time());
+
+		$data=array(
+		'photo_id'=>$parameter[0],
+		'event_id'=>$parameter[1],
+		'added_by'=>$parameter[2],
+		'path'=>$parameter[3],
+		'date_added'=>$date 
+		);
+		$this->db->where('photo_id',$parameter[0]);
+		$this->db->update('photo',$data);
 		if($this->db->affected_rows() == 1){
+			//$this->load->view('tupsucc');
 			return 1;
 		}
 		else{
@@ -47,11 +61,13 @@
 		function delete_photo takes photo_id and event_id as arguments
 		and deletes the row with that photo_id in table photo
 	*/
-	public function delete_photo($photo_id,$event_id) {
+	public function delete_photo($photo_id) {
 		$this->load->database();
 		$this->load->library('table');
-		$query = $this->db->query("DELETE FROM photo WHERE photo_id='".$photo_id."' AND event_id='".$event_id."'");
+		$this->db->where('photo_id',$photo_id);
+		$this->db->delete('photo');
 		if($this->db->affected_rows() ==1){
+			//$this->load->view('twsucc');
 			return 1;
 		}
 		else{
@@ -63,9 +79,12 @@
 	public function show_photo_table()
 	{
 	$this->load->database();
-	$query =$this->db->query(SELECT * FROM photo);
-	$this->load->library('table');
-	echo $this->table->generate($query);
+    $this->load->library('table');
+
+		$query = $this->db->query("SELECT * FROM photo");
+
+		echo $this->table->generate($query); 
 	}
 	
 }
+?>
