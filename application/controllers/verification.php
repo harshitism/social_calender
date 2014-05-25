@@ -1,13 +1,14 @@
 <?php 
 class Verification extends CI_Controller {
 
+
 	public function __construct()
 		{
 			parent::__construct();
 		}
 		
 	function index($hash)
-	{
+       	{
 		$this->load->database();
 		//echo "hello";
 		$exist = $this->db->query("SELECT * FROM user WHERE hash = '".$hash."'");
