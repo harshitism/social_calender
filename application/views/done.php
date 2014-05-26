@@ -76,13 +76,20 @@
                         <a class="a" href="<?php echo $this->config->base_url();?>index.php/following/extract_following/<?php echo $user_id;?>">extract followings</a>
                         <br>
                          <a class="a" href="<?php echo $this->config->base_url();?>index.php/follower/extract_follower/<?php echo $user_id;?>">extract followers</a>
+<<<<<<< HEAD
                      
+=======
+>>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
                     </div><?php
 	}
 	else if(isset($arr)) {echo "Followings are :"; foreach($arr as $row)
 	{
 		echo $row->following_id."<br>";
+<<<<<<< HEAD
         }
+=======
+	}
+>>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
 ;}
 else  {echo "Followers are :"; foreach($newarr as $row)
 	{

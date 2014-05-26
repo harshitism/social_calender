@@ -35,7 +35,11 @@ CREATE TABLE IF NOT EXISTS `event` (
   `end_date` varchar(50) NOT NULL,
   PRIMARY KEY (`event_id`),
   UNIQUE KEY `event_id` (`event_id`)
+<<<<<<< HEAD
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+=======
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+>>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
 
 --
 -- Dumping data for table `event`

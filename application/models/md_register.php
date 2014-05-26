@@ -1,7 +1,11 @@
 <?php
 //Model md_register validates name and email of the user whether it is according to database or not and inserts info of the user in table user.
+<<<<<<< HEAD
 class Md_register extends CI_Model 
 {
+=======
+class Md_register extends CI_Model {
+>>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
 	public function __construct()
 	{
 			//call the model constructor
@@ -14,9 +18,16 @@ class Md_register extends CI_Model
 		//explode function is used to fetch distinct info from $params.
 		$this->load->database();
 		$info = explode(",",$params);
+<<<<<<< HEAD
 		//check if a user is registered with this email id
 		$exist = $this->db->query("SELECT * FROM user WHERE email = '".$info[3]."'");
 		if($exist->num_rows()==0)
+=======
+		//check if a user is registered with this email id or phone
+		$email_exist = $this->db->query("SELECT * FROM user WHERE email = '".$info[3]."'");
+		$phone_exist = $this->db->query("SELECT * FROM user WHERE contact = '".$info[5]."'");
+		if($email_exist->num_rows()==0&&$phone_exist->num_rows()==0)
+>>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
 		{
 			//validate email
 			if(filter_var($info[3], FILTER_VALIDATE_EMAIL))
@@ -24,6 +35,7 @@ class Md_register extends CI_Model
 				$name = $info[0].$info[1].$info[2];
 				if(ctype_alpha($name))     //checks if name has only characters
 				{
+<<<<<<< HEAD
 					$hash = md5( rand(0,1000) );
 					$query = $this->db->query("INSERT INTO user (first_name,middle_name,last_name,email,dob,contact,password,gender,hash) values ('".$info[0]."','".$info[1]."','".$info[2]."','".$info[3]."','".$info[4]."','".$info[5]."','".$info[6]."','".$info[7]."','".$hash."')");
 					if($this->db->affected_rows() == 1)
@@ -45,6 +57,11 @@ class Md_register extends CI_Model
 	                mail($info[3], 'Registration Confirmation', $message, "From:social_calender");
 					return 1;			//return 1 if info is inserted
 					}
+=======
+					$query = $this->db->query("INSERT INTO user (first_name,middle_name,last_name,email,dob,contact,password,gender) values ('".$info[0]."','".$info[1]."','".$info[2]."','".$info[3]."','".$info[4]."','".$info[5]."','".$info[6]."','".$info[7]."')");
+					if($this->db->affected_rows() == 1)
+					return 1;			//return 1 if info is inserted
+>>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
 					else
 					return 0;			//return 0 if info is not inserted
 				}
@@ -55,6 +72,7 @@ class Md_register extends CI_Model
 			return 0;					//return 0 if email is not validated
 		}
 		else
+<<<<<<< HEAD
 		{
 			foreach( $exist->result() as $row)
 			{
@@ -93,4 +111,9 @@ class Md_register extends CI_Model
 	}
 }
 }
+=======
+		return 0;						//return 0 if this email id is already used
+	}
+}
+>>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
 ?>

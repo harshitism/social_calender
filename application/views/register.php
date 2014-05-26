@@ -1,16 +1,24 @@
 <!DOCTYPE html">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<<<<<<< HEAD
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 <title>Register</title>
 <link href="<?php echo $this->config->base_url();?>assets/css/custom.css" rel="stylesheet">
 <link href="<?php echo $this->config->base_url();?>assets/css/bootstrap-datetimepicker.css">
 <link href="<?php echo $this->config->base_url();?>assets/css/bootstrap.css" rel="stylesheet">
+=======
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Register</title>
+<link rel="icon" href="img/kvirc.png" type="image/x-icon">
+<link href="bootstrap.css" rel="stylesheet">
+>>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
 <script src="http://code.jquery.com/jquery-latest.min.js"
         type="text/javascript"></script>
 <script src="js/bootstrap.js"></script>
 
+<<<<<<< HEAD
 
 </head>
 
@@ -49,12 +57,20 @@
 
 </head>
  <?php echo validation_errors(); ?>
+=======
+</head>
+
+>>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
 <body>
 	<div class="container">
 		<div class="row">
 
 			<div class="col-md-6 well ">
+<<<<<<< HEAD
 			<form class="form-horizontal" id="register" method="post" action="<?php echo $this->config->base_url();?>index.php/register" onsubmit="formValidate()" alignment:right>
+=======
+			<form class="form-horizontal" id="register" method='post' action='practice.php' alignment:right>
+>>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
 
 			<fieldset>
 	
@@ -78,12 +94,20 @@
 
 				<div class="form-group">
 				<label for="middle_name">Middle Name</label>&nbsp&nbsp&nbsp&nbsp
+<<<<<<< HEAD
 				<input type="text"  name="middle_name" maxlength="50" aria-required="true" placeholder="Middle Name" aria-label="First Name" /><br>
+=======
+				<input type="text"  name="first_name" maxlength="50" aria-required="true" placeholder="Middle Name" aria-label="First Name" /><br>
+>>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
 				</div>
 
 				<div class="form-group">
 				<label for="last_name">Last name</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<<<<<<< HEAD
 				<input type="text"  name="last_name" maxlength="50" aria-required="true" placeholder="Last Name" aria-label="Last Name" /><br>
+=======
+				<input type="text"  name="lastname" maxlength="50" aria-required="true" placeholder="Last Name" aria-label="Last Name" /><br>
+>>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
 				</div>
 
 				<div class="form-group">
@@ -93,12 +117,18 @@
 
 				<div class="form-group">
 				<label for="dob">DOB</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<<<<<<< HEAD
 				<input type="date"  name="dob" maxlength="50" aria-required="true" placeholder="Date of Birth" aria-label="dob" /><br>
 				</div>
 				<div class="form-group">
 				<label for="contact">Contact</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 				<input type="text"  name="contact" maxlength="10" aria-required="true" placeholder="contact" aria-label="contact" /><br>
 				</div>
+=======
+				<input type="date"  name="dob" maxlength="50" aria-required="true" placeholder="Date of Birth" aria-label="First Name" /><br>
+				</div>
+
+>>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
 				<div class="form-group">
 				<label for="password">Password</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 				<input type="password" name="password" minl="5" placeholder="Password" id='pas' value="" / ><br><br>
@@ -108,10 +138,17 @@
 				<label for="gender">gender</label><br>
 				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<<<<<<< HEAD
 				<input type="radio"  name="gender" value="male" checked = "checked">MALE<br>
 				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 				<input type="radio"  name="gender" value="female">FEMALE<br>
+=======
+				<input type="radio"  name="gender" value="m">MALE<br>
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				<input type="radio"  name="gender" value="f">FEMALE<br>
+>>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
 				</div>
 
 				<div class="checkbox">

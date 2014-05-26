@@ -25,6 +25,10 @@ class Register extends CI_Controller{
 		$this->form_validation->set_rules('dob', 'Date of Birth', 'required|valid_date[dd-mm-yyyy,/]');
 		$this->form_validation->set_rules('contact', 'Contact', 'required|min_length[10]|max_length[10]|numeric');
 		$this->form_validation->set_rules('password', 'Password', 'required|min_length[5]|max_length[20]|');
+<<<<<<< HEAD
+=======
+		//$this->form_validation->set_rules('gender', 'Gender', 'required|min_length[4]|max_length[10]|!numeric');
+>>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
 		
 		if ($this->form_validation->run() == FALSE)
 		{
