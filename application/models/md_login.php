@@ -12,10 +12,13 @@ class Md_login extends CI_Model {
 	{
 		
 		$this->load->database();
-		$query = $this->db->query("SELECT user_id from user where (email = '".$uname."' and password = '".$password."') or (contact = '".$uname."' and password = '".$password."')");
+		$query = $this->db->query("SELECT user_id,verify from user where (email = '".$uname."' and password = '".$password."') or (contact = '".$uname."' and password = '".$password."')");
 		foreach( $query->result() as $row)
 		{
+			if($row->verify=='1/1/1')
 			return $row->user_id;
+			else
+			return -1;
 		}
 		return 0;
 	}
