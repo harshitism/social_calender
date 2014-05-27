@@ -21,17 +21,6 @@ class Login extends CI_Controller{
 		);
 		
 		
-<<<<<<< HEAD
-=======
-		if ($this->form_validation->run() == FALSE)
-		{
-			$data['uname_error']="Incorrect Username Type";
-			$this->load->view('login',$data);
-			
-		}
-		else
-		{
->>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
 			$this->load->model('md_login');
 			$data['user_id']=$this->md_login->login($parameter['user_name'],$parameter['password']);
 			if($data['user_id']==0)
@@ -39,7 +28,6 @@ class Login extends CI_Controller{
 				$data['uname_error']="Incorrect Username & Password Combination";
 				$this->load->view('login',$data);
 			}
-<<<<<<< HEAD
 			else if($data['user_id']==-1)
 			{
 				$data['uname_error']="Email verification required";
@@ -47,32 +35,8 @@ class Login extends CI_Controller{
 			}
 			else
 			{
-				$this->load->view('done',$data);
+				$this->load->view('user_profile');
 			}
-=======
-			else
-			{
-				$this->load->library('session');
-				$array = array('user_name' => $parameter['user_name'], 'user_id' => $data['user_id']);
-				$this->session->set_userdata($array);
-				$this->load->view('done',$data);
-			}
-		}
-	}
-
-/*	Function name : check_digit
-Function : ensures the presence of only digits in user entered phone no.*/
-	
-function check_digit($str)
-	{	
-		if (ctype_digit($str))
-		return TRUE;
-		else
-		{
-			$this->form_validation->set_message('check_digit','The %s field must contain only decimal digits');
-			return false;
-		}
->>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
 	}
 }
 ?>
