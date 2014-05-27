@@ -26,15 +26,16 @@ class Login extends CI_Controller{
 			if($data['user_id']==0)
 			{
 				$data['uname_error']="Incorrect Username & Password Combination";
-				$this->load->view('login',$data);
+				$this->load->view('startpage',$data);
 			}
 			else if($data['user_id']==-1)
 			{
 				$data['uname_error']="Email verification required";
-				$this->load->view('login',$data);
+				$this->load->view('startpage',$data);
 			}
 			else
 			{
+				
 				$this->load->view('user_profile');
 			}
 	}

@@ -8,15 +8,12 @@ class Md_follower extends CI_Model {
 		parent::__construct();
 	}
 	//function extract_follower to know all the followers of current user takes one argument (user_id)
-<<<<<<< HEAD
-	public function extract_follower($user_id)
-	{
-=======
+
 	public function extract_follower()
 	{
 		$this->load->library('session');
 		$user_id = $this->session->userdata('user_id');
->>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
+
 		$this->load->database();
 		$this->db->where('user_id',$user_id);
 		$this->db->select('follower_id');

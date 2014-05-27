@@ -11,8 +11,7 @@
     <title><?php echo $title; ?></title>
 
     <!-- Bootstrap core CSS -->
-    <link href="<?php echo base_url('bootstrap/css/bootstrap.css'); ?>" rel="stylesheet" >
-    <link href="<?php echo base_url('bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet" >
+    <link href="<?php echo $this->config->base_url();?>assets/css/bootstrap.css" rel="stylesheet">
 
     <!-- Add custom CSS here -->
     <style type="text/css">

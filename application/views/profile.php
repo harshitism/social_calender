@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,13 +10,10 @@
     <title>User Profile</title>
 
     <!-- Bootstrap core CSS -->
-<<<<<<< HEAD
-    <link href="./assets/css/bootstrap.css" rel="stylesheet" >
-    <link href="./assets/css/bootstrap.min.css" rel="stylesheet" >
-=======
+
     <link href="<?php echo $this->config->base_url();?>assets/css/bootstrap.css" rel="stylesheet" >
     <link href="<?php echo $this->config->base_url();?>assets/css/bootstrap.min.css" rel="stylesheet" >
->>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
+
 
     <!-- Add custom CSS here -->
     <style type="text/css">
@@ -142,15 +136,7 @@
 			
 			<!-- Start of the left section of the page, will show features like profile pic, ability to edit it
 			and the list of all the followers and the persons followed by the person-->	
-<<<<<<< HEAD
-			<div class="col-md-3">
-					<p>
-					<img src="./img/pp.png"  height="207" alt="Status Owner"   />
-					</p>
-					
-  					<div class="btn-group">
-    					<button type="button" class="btn btn-default" style="width:255px">Edit My Profile</button>
-=======
+
 			<div class="col-md-3 " style="margin-left:45px;">
 					<p>
 					<img src="./img/pp.png" width="230px"  height="207" alt="Status Owner"   />
@@ -158,20 +144,12 @@
 					
   					<div class="btn-group">
     					<button type="button" class="btn btn-default" style="width:230px">Edit My Profile</button>
->>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
+
   					</div>
   				
   				<br />
 
-<<<<<<< HEAD
-				<div class="panel panel-default" style="margin-top:12px;">	
-                    <div class="panel-heading" >
-                    	Follows
-                    </div>
-                </div>
-                
-                <div class="thumbnail" style="height:150px;width:262px;margin-top:-14px;">
-=======
+
 				<div class="panel panel-default" style="margin-top:12px;width:230px;">	
                     <div class="panel-heading" >
                     	Follows<span class="badge pull-right">42</span>
@@ -179,20 +157,12 @@
                 </div>
                 
                 <div class="thumbnail" style="height:150px;width:230px;margin-top:-14px;">
->>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
+
 					
                 </div>
 			
 
-<<<<<<< HEAD
-				<div class="panel panel-default" style="margin-top:-8px">	
-                    <div class="panel-heading">
-                    	Show All Friends
-                    </div>
-                </div>
 
-                <div class="thumbnail" style="height:150px;width:262px;margin-top:-14px;">
-=======
 				<div class="panel panel-default" style="margin-top:-8px;width:230px;">	
                     <div class="panel-heading">
                     	Show All Friends<span class="badge pull-right">42</span>
@@ -200,7 +170,7 @@
                 </div>
 
                 <div class="thumbnail" style="height:150px;width:230px;margin-top:-14px;">
->>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
+
 					
                 </div>
 
@@ -209,11 +179,9 @@
 			<!--Start of the second section of the page, will deal with all the imprtant stuff
 			like adding event , show events and updates of all the following and the person himself-->
 			
-<<<<<<< HEAD
-			<div class="col-md-6" >
-=======
+
 			<div class="col-md-5" >
->>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
+
 
 				<form action="#" method="post">
             		
@@ -227,11 +195,9 @@
                       
                         <div class="panel-footer">
                       	    <div class="row">
-<<<<<<< HEAD
-                                <div class="col-md-10">
-=======
+
                                 <div class="col-md-9">
->>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
+
                                     <div class="form-group">
                                         <button type="button" class="btn btn-default" title="Set Time">
                                         <span class="glyphicon glyphicon-time"></span></button>                                    	
@@ -244,19 +210,13 @@
                                         <button type="button" class="btn btn-default" title="How To Reach">
                                         <span class="glyphicon glyphicon-map-marker"></span></button>                              
                                     </div>
-<<<<<<< HEAD
-                                </div>
-                                    	
-                            	
-                                    <div class="form-group">                                                               
-                                        <input type="submit" name="submit" value="Publish" class="btn btn-primary">                                                             
-=======
+
                                 
                                    </div> 	
                             	
                                     <div class="form-group">                                                               
                                         <input type="submit" name="submit" value="Publish" class="btn btn-primary" style="margin-left:25px">                                                             
->>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
+
                                     </div>
                                 
                             </div>
@@ -269,18 +229,7 @@
 
         		
         		<!--First Post-->
-<<<<<<< HEAD
-	        		<div class="panel panel-default">
-						<div class="panel-body">
-	                        <div class="row">
-	                        	<div class="col-md-2">
-	                        		
-									<p>
-										<img src="./img/pp.png" width="70" height="65" alt="Status Owner"  />
-									</p> 
-	                        	</div>
-							<div class="col-md-10">
-=======
+
 	        		<div class="panel panel-default ">
 						<div class="panel-body">
 	                        <div class="row">
@@ -303,15 +252,13 @@
 								
 
 							<div class="col-md-12">
->>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
+
 	                        		
 	                        		This is the sample first event created for the location A and the number of people who got invited are as follows
 	                        		and the rest i.e. photos and videos are attached herewith.
 	                        		
-<<<<<<< HEAD
-=======
-	                        		
->>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
+               		
+
 	                        			<ul class="list-inline">
 									    	<li>
 									        	<a href="#">Invite</a>
@@ -326,9 +273,7 @@
 	                    </div>
 						
 						<div class="panel-footer">
-<<<<<<< HEAD
-                           <textarea name="comment1" cols="5" rows="5" id="comment_message1" class="form-control message" style="height: 34px; overflow: hidden;" placeholder="Write a Comment "></textarea> 
-=======
+
 							<button type="button" style="border-style:none;background-color:#f5f5f5;"><span class="glyphicon glyphicon-thumbs-up" style="color:#428bca;"></span></button>
 							 <div class="pull-right">
 							 <div class="dropdown ">
@@ -343,23 +288,12 @@
 								</div>
 							</div>
 							<textarea name="comment1" cols="5" rows="5" id="comment_message1" class="form-control message" style="margin-top:15px;height: 34px; overflow: hidden;" placeholder="Write a Comment "></textarea> 
->>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
+
            	           </div>
            	       </div>
 
 	        		<!--Second Post-->
-<<<<<<< HEAD
-	        			<div class="panel panel-default">
-						  <div class="panel-body">
-	                        <div class="row">
-	                        	<div class="col-md-2">
-	                        		
-									<p>
-										<img src="./img/pp.png" width="70" height="65" alt="Status Owner"  />
-									</p> 
-	                        	</div>
-							<div class="col-md-10">
-=======
+
 	        			<div class="panel panel-default ">
 						<div class="panel-body">
 	                        <div class="row">
@@ -382,15 +316,12 @@
 								
 
 							<div class="col-md-12">
->>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
+
 	                        		
 	                        		This is the sample first event created for the location A and the number of people who got invited are as follows
 	                        		and the rest i.e. photos and videos are attached herewith.
 	                        		
-<<<<<<< HEAD
-=======
-	                        		
->>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
+
 	                        			<ul class="list-inline">
 									    	<li>
 									        	<a href="#">Invite</a>
@@ -405,9 +336,7 @@
 	                    </div>
 						
 						<div class="panel-footer">
-<<<<<<< HEAD
-                           <textarea name="comment2" cols="5" rows="5" id="comment_message2" class="form-control message" style="height: 34px; overflow: hidden;" placeholder="Write a Comment "></textarea> 
-=======
+
 							<button type="button" style="border-style:none;background-color:#f5f5f5;"><span class="glyphicon glyphicon-thumbs-up" style="color:#428bca;"></span></button>
 							<div class="pull-right">
 							 <div class="dropdown ">
@@ -422,24 +351,13 @@
 								</div>
 							</div>
 							<textarea name="comment2" cols="5" rows="5" id="comment_message2" class="form-control message" style="margin-top:15px;height: 34px; overflow: hidden;" placeholder="Write a Comment "></textarea> 
->>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
+
            	           </div>
            	       </div>
 	        		
 	        		<!--Third Post-->
 
-<<<<<<< HEAD
-	        		<div class="panel panel-default">
-						<div class="panel-body">
-	                        <div class="row">
-	                        	<div class="col-md-2">
-	                        		
-									<p>
-										<img src="./img/pp.png" width="70" height="65" alt="Status Owner"  />
-									</p> 
-	                        	</div>
-							<div class="col-md-10">
-=======
+
 	        		<div class="panel panel-default ">
 						<div class="panel-body">
 	                        <div class="row">
@@ -462,15 +380,12 @@
 								
 
 							<div class="col-md-12">
->>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
+
 	                        		
 	                        		This is the sample first event created for the location A and the number of people who got invited are as follows
 	                        		and the rest i.e. photos and videos are attached herewith.
 	                        		
-<<<<<<< HEAD
-=======
-	                        		
->>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
+
 	                        			<ul class="list-inline">
 									    	<li>
 									        	<a href="#">Invite</a>
@@ -485,24 +400,7 @@
 	                    </div>
 						
 						<div class="panel-footer">
-<<<<<<< HEAD
-                           <textarea name="comment3" cols="5" rows="5" id="comment_message3" class="form-control message" style="height: 34px; overflow: hidden;" placeholder="Write a Comment "></textarea> 
-           	           </div>
-           	       </div>	
-	                
-	        		<!--Fourth Post-->
 
-	                <div class="panel panel-default">
-						<div class="panel-body">
-	                        <div class="row">
-	                        	<div class="col-md-2">
-	                        		
-									<p>
-										<img src="./img/pp.png" width="70" height="65" alt="Status Owner"  />
-									</p> 
-	                        	</div>
-							<div class="col-md-10">
-=======
 							<button type="button" style="border-style:none;background-color:#f5f5f5;"><span class="glyphicon glyphicon-thumbs-up" style="color:#428bca;"></span></button>
 							<div class="pull-right">
 							<div class="dropdown ">
@@ -545,15 +443,12 @@
 								
 
 							<div class="col-md-12">
->>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
+
 	                        		
 	                        		This is the sample first event created for the location A and the number of people who got invited are as follows
 	                        		and the rest i.e. photos and videos are attached herewith.
 	                        		
-<<<<<<< HEAD
-=======
-	                        		
->>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
+
 	                        			<ul class="list-inline">
 									    	<li>
 									        	<a href="#">Invite</a>
@@ -568,13 +463,7 @@
 	                    </div>
 						
 						<div class="panel-footer">
-<<<<<<< HEAD
-                           <textarea name="comment4" cols="5" rows="5" id="comment_message4" class="form-control message" style="height: 34px; overflow: hidden;" placeholder="Write a Comment "></textarea> 
-           	           </div>
-           	       </div>
-	           
 
-=======
 							<button type="button" style="border-style:none;background-color:#f5f5f5;"><span class="glyphicon glyphicon-thumbs-up" style="color:#428bca;"></span></button>
 							<div class="pull-right">
 								 <div class="dropdown ">
@@ -591,45 +480,36 @@
 							<textarea name="comment4" cols="5" rows="5" id="comment_message4" class="form-control message" style="margin-top:15px;height: 34px; overflow: hidden;" placeholder="Write a Comment "></textarea> 
            	           </div>
            	       </div>
->>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
         	</div>
 
         	<!--The third compartment will be used for writing recent activity contents to the page-->
 			<div class="col-md-3">
-<<<<<<< HEAD
-				<div class="panel panel-default">	
-=======
+
 				<div class="panel panel-default" style="width:230px">	
->>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
+
                     <div class="panel-heading">
                     	Recent Activity
                     </div>
                 </div>
                 
-<<<<<<< HEAD
-                <div class="thumbnail" style="height:150px;width:262px;margin-top:-14px;">
-=======
+
                 <div class="thumbnail" style="height:150px;width:230px;margin-top:-14px;">
->>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
+
 					
                 </div>
 			
 
-<<<<<<< HEAD
-				<div class="panel panel-default">	
-=======
+
 				<div class="panel panel-default" style="width:230px;margin-top:-7px">	
->>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
+
                     <div class="panel-heading">
                     	Recent Activity
                     </div>
                 </div>
 
-<<<<<<< HEAD
-                <div class="thumbnail" style="height:310px;width:262px;margin-top:-14px;">
-=======
+
                 <div class="thumbnail" style="height:300px;width:230px;margin-top:-14px;">
->>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
+
 					
                 </div>
 			</div>
@@ -695,11 +575,9 @@
     
     <div id="footer" class="container-fluid" style="margin:50px 0 0">
     	<div class="panel-footer">
-<<<<<<< HEAD
-        	<p  style="text-indent:580px">Copyright &copy; Phoenix Partners</p>
-=======
+
         	<p  style="text-indent:540px">Copyright &copy; Phoenix Partners</p>
->>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
+
         </div>
 	</div>
     
@@ -707,15 +585,10 @@
     <!-- JavaScript -->
     <script src="./assets/js/jquery-1.9.0.min.js" ></script>
     <script src="./assets/js/bootstrap.js" ></script>
-<<<<<<< HEAD
-    <script src="./assets/js/jquery.js" ></script>
-    
-</body>
 
-=======
     <script src="./assets/js/bootstrap-tooltip.js" ></script>
     <script src="./assets/js/bootstrap-popover.js" ></script>
     <script src="./assets/js/jquery.js" ></script>
    </body>
->>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
+
 </html>

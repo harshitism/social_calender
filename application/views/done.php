@@ -69,33 +69,33 @@
 <div id="container">
 	<h1><?php
 	if(isset($user_id))
-	{
+		{
 		echo "logged in with user_id = ".$user_id."";
 		?>
 		<div class="form-group">
                         <a class="a" href="<?php echo $this->config->base_url();?>index.php/following/extract_following/<?php echo $user_id;?>">extract followings</a>
                         <br>
                          <a class="a" href="<?php echo $this->config->base_url();?>index.php/follower/extract_follower/<?php echo $user_id;?>">extract followers</a>
-<<<<<<< HEAD
-                     
-=======
->>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
+
                     </div><?php
-	}
-	else if(isset($arr)) {echo "Followings are :"; foreach($arr as $row)
-	{
-		echo $row->following_id."<br>";
-<<<<<<< HEAD
-        }
-=======
-	}
->>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
-;}
-else  {echo "Followers are :"; foreach($newarr as $row)
-	{
-		echo $row->follower_id."<br>";
-	}
-;}
+	    }
+	    else if(isset($arr)) 
+		{
+			echo "Followings are :"; 
+			foreach($arr as $row)
+			{
+				echo $row->following_id."<br>";
+		
+			}
+		}
+		else  
+		{
+			echo "Followers are :"; 
+			foreach($newarr as $row)
+			{
+				echo $row->follower_id."<br>";
+			}
+		}
 ?></h1>
 
 	

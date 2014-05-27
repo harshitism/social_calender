@@ -1,26 +1,16 @@
 <!DOCTYPE html">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<<<<<<< HEAD
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-<title>Register</title>
-<link href="<?php echo $this->config->base_url();?>assets/css/custom.css" rel="stylesheet">
-<link href="<?php echo $this->config->base_url();?>assets/css/bootstrap-datetimepicker.css">
-<link href="<?php echo $this->config->base_url();?>assets/css/bootstrap.css" rel="stylesheet">
-=======
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Register</title>
 <link rel="icon" href="img/kvirc.png" type="image/x-icon">
 <link href="bootstrap.css" rel="stylesheet">
->>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
+
 <script src="http://code.jquery.com/jquery-latest.min.js"
         type="text/javascript"></script>
 <script src="js/bootstrap.js"></script>
 
-<<<<<<< HEAD
-
-</head>
 
 
 
@@ -55,12 +45,11 @@
 
 
 
-</head>
- <?php echo validation_errors(); ?>
-=======
-</head>
 
->>>>>>> 867a096b0c20ee191cd93043ef21615912046a86
+ <?php echo validation_errors(); ?>
+
+
+
 <body>
 	<div class="container">
 		<div class="row">
@@ -207,7 +196,7 @@
   <td><a href="respective page" style="text-decoration:none;">Contact us</a></td>
 </tr
 
-<tr>
+><tr>
   <td><a href="respective page" style="text-decoration:none;">Tour</a></td>
   <td><a href="respective page" style="text-decoration:none;">Jobs</a></td>
 </tr>
