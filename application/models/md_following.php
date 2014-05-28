@@ -7,13 +7,11 @@ class Md_following extends CI_Model {
 		//model constructor
 		parent::__construct();
 	}
-	//function add_follwing to add following of current user takes two arguments (user_id,following_id)
-
+	//function add_follwing to add following of current user takes arguments (following_id)
 	public function add_following($following_id)
 	{
 		$this->load->library('session');
 		$user_id = $this->session->userdata('user_id');
-
 		$this->load->database();
 		//check if this user already follows following_id
 		$array = array('user_id' => $user_id, 'following_id' => $following_id);
@@ -37,13 +35,11 @@ class Md_following extends CI_Model {
 		else
 		return 0;
 	}
-	//function del_following to delete following of current user takes two arguments (user_id,following_id)
-
+	//function del_following to delete following of current user takes arguments (following_id)
 	public function del_following($following_id)
 	{
 		$this->load->library('session');
 		$user_id = $this->session->userdata('user_id');
-
 		$this->load->database();
 		//check if user_id follows following_id
 		$array = array('user_id' => $user_id, 'following_id' => $following_id);
@@ -63,12 +59,8 @@ class Md_following extends CI_Model {
 		return 0;
 	}
 	//function extract_following to know all the followings of current user takes one argument (user_id)
-
-	public function extract_following()
+	public function extract_following($user_id)
 	{
-		$this->load->library('session');
-		$user_id = $this->session->userdata('user_id');
-
 		$this->load->database();
 		$this->db->where('user_id',$user_id);
 		$this->db->select('following_id');

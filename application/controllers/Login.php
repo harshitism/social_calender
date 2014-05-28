@@ -36,7 +36,11 @@ class Login extends CI_Controller{
 			else
 			{
 				
-				$this->load->view('user_profile');
+				$this->load->library('session');
+				$array = array('user_name' => $parameter['user_name'], 'user_id' => $data['user_id']);
+				$this->session->set_userdata($array);
+				$this->load->helper('url');
+				redirect('/Profile_currentuser');
 			}
 	}
 }

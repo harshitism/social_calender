@@ -7,7 +7,6 @@ class Md_comment extends CI_Model {
 		//model constructor
 		parent::__construct();
 	}
-
 	//function add_comment to add a comment of current user to an event. takes arguments ("comment,event_id")
 	public function add_comment($params)
 	{
@@ -16,14 +15,11 @@ class Md_comment extends CI_Model {
 		$this->load->database();
 		$info = explode(",",$params);
 		$info[2] = date('m/d/Y h:i:s a', time());
-
 		//check if comment is not null
 		if($info[0]!="")
 		{
 			//insert the user and event info into comment_user. a comment_id will be automatically assigned.
-
 			$array = array('user_id' => $user_id, 'event_id' => $info[1], 'date_time' => $info[2]);
-
 			$query = $this->db->insert('comment_user',$array);
 			if($this->db->affected_rows() == 1)
 			{
@@ -34,7 +30,6 @@ class Md_comment extends CI_Model {
 				$res = $newquery->row();
 				$comment_id = $res->comment_id;
 				//now insert the comment into comment_details.
-
 				$newarr = array('comment_id' => $comment_id, 'comment' => $info[0]);
 				$this->db->insert('comment_details',$newarr);
 				return 1;
@@ -119,7 +114,6 @@ class Md_comment extends CI_Model {
 		}
 		return $result;
 	}
-
 	//function get_commentid used to retreive comment_id from event_id,time
 	public function get_commentid($params)
 	{
@@ -128,7 +122,6 @@ class Md_comment extends CI_Model {
 		$this->load->database();
 		$info = explode(",",$params);
 		$array = array('user_id' => $user_id, 'event_id' => $info[0], 'date_time' => $info[1]);
-
 		$this->db->where($array);
 		$this->db->select('comment_id');
 		$cid = $this->db->get('comment_user');

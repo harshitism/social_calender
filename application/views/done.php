@@ -69,33 +69,31 @@
 <div id="container">
 	<h1><?php
 	if(isset($user_id))
-		{
+	{
 		echo "logged in with user_id = ".$user_id."";
 		?>
 		<div class="form-group">
-                        <a class="a" href="<?php echo $this->config->base_url();?>index.php/following/extract_following/<?php echo $user_id;?>">extract followings</a>
+                        <a class="a" href="<?php echo $this->config->base_url();?>index.php/following/extract_following">extract followings</a>
                         <br>
-                         <a class="a" href="<?php echo $this->config->base_url();?>index.php/follower/extract_follower/<?php echo $user_id;?>">extract followers</a>
-
+                         <a class="a" href="<?php echo $this->config->base_url();?>index.php/follower/extract_follower">extract followers</a>
+                     	<a class="a" href="<?php $this->load->helper('url'); $segments = array('following', 'add_following', '123'); echo site_url($segments);?>">add followings</a>
                     </div><?php
-	    }
-	    else if(isset($arr)) 
-		{
-			echo "Followings are :"; 
-			foreach($arr as $row)
-			{
-				echo $row->following_id."<br>";
-		
-			}
-		}
-		else  
-		{
-			echo "Followers are :"; 
-			foreach($newarr as $row)
-			{
-				echo $row->follower_id."<br>";
-			}
-		}
+	}
+	else if(isset($arr)) {echo "Followings are :"; foreach($arr as $row)
+	{
+		echo $row->following_id."<br>";
+        }
+;}
+else if(isset($newarr)) {echo "Followers are :"; foreach($newarr as $row)
+	{
+		echo $row->follower_id."<br>";
+	}
+;}
+else {echo "Friends are :"; foreach($naarr as $row)
+	{
+		echo $row->friend_id."<br>";
+	}
+;}
 ?></h1>
 
 	
