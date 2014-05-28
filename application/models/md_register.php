@@ -9,7 +9,7 @@ class Md_register extends CI_Model {
 			parent::__construct();
 	}
 	//function md_register called as md_register("first_name,middle_name,last_name,email,dob,contact,password,gender"), used to insert info of the user in the database which is trying to register.
-	public function md_register($params)
+	public function register($params)
 	{
 		//all the arguements are considered as a string of user info separated by ",".
 		//explode function is used to fetch distinct info from $params.
@@ -19,9 +19,12 @@ class Md_register extends CI_Model {
 		//check if a user is registered with this email id or phone
 		$email_exist = $this->db->query("SELECT * FROM user WHERE email = '".$info[3]."'");
 		$phone_exist = $this->db->query("SELECT * FROM user WHERE contact = '".$info[5]."'");
-		if($email_exist->num_rows()==0&&$phone_exist->num_rows()==0)
-
+		
+		
+		
+		if($email_exist->num_rows() == 0 && $phone_exist->num_rows() ==0)
 		{
+			
 			//validate email
 			if(filter_var($info[3], FILTER_VALIDATE_EMAIL))
 			{
@@ -30,8 +33,8 @@ class Md_register extends CI_Model {
 				{
 
 					$hash = md5( rand(0,1000) );
-					$query = $this->db->query("INSERT INTO user (first_name,middle_name,last_name,email,dob,contact,password,gender,hash) values ('".$info[0]."','".$info[1]."','".$info[2]."','".$info[3]."','".$info[4]."','".$info[5]."','".$info[6]."','".$info[7]."','".$hash."')");
-					if($this->db->affected_rows() == 1)
+					$query = $this->db->query("INSERT INTO user (first_name,middle_name,last_name,email,dob,contact,password,gender,hash) VALUES ('".$info[0]."','".$info[1]."','".$info[2]."','".$info[3]."','".$info[4]."','".$info[5]."','".$info[6]."','".$info[7]."','".$hash."')");
+					if($this->db->affected_rows() >= 1)
 					{
 					$message = " To activate your account, please click on this link:\n\n";
 					$message = '
@@ -45,24 +48,33 @@ class Md_register extends CI_Model {
 					------------------------
  
 					Please click this link to activate your account:
-					http://localhost/social_startup/index.php/verification/index/'.$hash.'';
+					'.$this->config->base_url().'index.php/verification/index/'.$hash.'';
 	               
 	                mail($info[3], 'Registration Confirmation', $message, "From:social_calender");
 					return 1;			//return 1 if info is inserted
 					}
 					else
-					return 0;			//return 0 if info is not inserted
+					return 2;			//return 0 if info is not inserted
 				}
 				else
-				return 0;				//return 0 if name is wrong
+				return 3;				//return 0 if name is wrong
 			}
 			else
-			return 0;					//return 0 if email is not validated
+			return 4;					//return 0 if email is not validated
 		}
-		else
-
+		else if($email_exist->num_rows() > 0)
 		{
-			foreach( $exist->result() as $row)
+			return 5;
+			
+		}
+		else if($phone_exist->num_rows() > 0)
+		{
+			return 6;
+			
+		}
+			
+			/*
+			foreach( $email_exist->result() as $row)
 			{
 			if($row->verify=='1/1/1')
 			{
@@ -95,9 +107,11 @@ class Md_register extends CI_Model {
 					return 0;
 					}
 			}
-		}
+			
+			
+		}*/
+	
 	}
-}
 }
 
 ?>

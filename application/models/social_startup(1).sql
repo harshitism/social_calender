@@ -17,10 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `social_startup`
---
-CREATE DATABASE IF NOT EXISTS `social_startup` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `social_startup`;
+-- 
 
 -- --------------------------------------------------------
 

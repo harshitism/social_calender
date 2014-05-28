@@ -19,7 +19,8 @@ class Verification extends CI_Controller {
 			return 0;
 		}
 		$this->db->query("UPDATE user SET verify = '1/1/1' where hash = '".$hash."'");
-		$this->load->view('done1');
+		$data['succ']='Email Verification Successfull';
+		$this->load->view('done1',$data);
 	}
 }
 		

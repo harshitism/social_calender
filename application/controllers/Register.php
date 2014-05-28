@@ -29,21 +29,45 @@ class Register extends CI_Controller{
 		
 		if ($this->form_validation->run() == FALSE)
 		{
-			$this->load->view('register');
+			$data['uname_error']="Input Validation Errors";
+			$this->load->view('startpage',$data);
 		}
 		else
 		{
 			$param = implode(",",$parameter);
 			$this->load->model('Md_register');	
-			if($this->Md_register->md_register($param))
+			$status=$this->Md_register->register($param);
+			if($status==1)
 			{
+				
 				$data['succ'] = "successfully registered";
+				
 				$this->load->view('done1',$data);
 			}
-			else
+			else if($status==2)
 			{
-				$data['succ'] = "error";
-				$this->load->view('done1',$data);
+				$data['uname_error']="Inserted Information is Invalid";
+				$this->load->view('startpage',$data);
+			}
+			else if($status==3)
+			{
+				$data['uname_error']="Name of User contains invalid Characters";
+				$this->load->view('startpage',$data);
+			}
+			else if($status==4)
+			{
+				$data['uname_error']="Email is not Validated";
+				$this->load->view('startpage',$data);
+			}
+			else if($status==5)
+			{
+				$data['uname_error']="Email already Exists";
+				$this->load->view('startpage',$data);
+			}
+			else if($status==6)
+			{
+				$data['uname_error']="Mobile Number already Exists";
+				$this->load->view('startpage',$data);
 			}
 		}
 	}
