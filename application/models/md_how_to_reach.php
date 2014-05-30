@@ -4,7 +4,6 @@ class Md_how_to_reach extends CI_Model{
 		parent::__construct(); //calls the constructer 
 	}
 	
-
 	/*function insert_how_to_reach_how_to_reach gets a parameter array as inputs 
 		assuming the inputs are in order id,latitude,longitude,event_date
 		it inserts these values in how_to_reach table
@@ -47,8 +46,7 @@ class Md_how_to_reach extends CI_Model{
 		$this->db->where('event_id',$parameter[0]);
 		$this->db->update('how_to_reach',$data);
 		if($this->db->affected_rows() ==1){
-			//$this->load->view('tupsucc');
-
+			//$this->load->view('profile');
 			return 1;
 		}
 		else{
@@ -57,20 +55,16 @@ class Md_how_to_reach extends CI_Model{
 	
 	}
 	
-
 	/*function delete_how_to_reach gets id  as parameter  
 		it deletes the rows from having event_id=$id from the how_to_reach table  
-
 	*/
 	public function delete_how_to_reach($id) {
 		$this->load->database();
 		$this->load->library('table');
-
 		$this->db->where('event_id',$id);
 		$this->db->delete('how_to_reach');
 		if($this->db->affected_rows() ==1){
-			//$this->load->view('twsucc');
-
+			$this->load->view('profile');
 			return 1;
 		}
 		else{
@@ -78,14 +72,14 @@ class Md_how_to_reach extends CI_Model{
 		}
 	}
 	
-
 	/*function show_how_to_reach displays the contents of how_to_reach table in
 		a tabular form
 	*/
 	public function show_how_to_reach()
 	{
 		$this->load->database();
-    $this->load->library('table');
+			$this->load->library('table');
+			
     		$query = $this->db->query("SELECT * FROM how_to_reach");
 
 		echo $this->table->generate($query); 
