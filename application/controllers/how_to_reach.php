@@ -18,6 +18,7 @@ class How_to_reach extends CI_Controller{
 				
 				$this->load->model('Md_how_to_reach');
 				$this->Md_how_to_reach->insert_how_to_reach($parameter);		
+				$this->load->view('profile');
 		}
 		/*function edit gets parameters separated by / as inputs in the url 
 		assuming the inputs are in order id,latitude,longitude,event_date
@@ -31,6 +32,7 @@ class How_to_reach extends CI_Controller{
 			$parameter=array($id,$latitude,$longitude,$event_date );
 			$this->load->model('Md_how_to_reach');
 			$this->Md_how_to_reach->edit_how_to_reach($parameter);
+			//$this->load->view('profile');
 		}
 		/*function delete gets id  as parameter  in the url 
 		it deletes the rows from having event_id=$id from the how_to_reach table  
@@ -38,8 +40,9 @@ class How_to_reach extends CI_Controller{
 		public function delete($id){
 			$this->load->database();
 			$this->load->helper(array('form', 'url'));
-
+		
 			$this->load->library('form_validation');	
+			echo "<br><br><br>";
 			$this->load->model('Md_how_to_reach');
 			$this->Md_how_to_reach->delete_how_to_reach($id);
 		
@@ -51,11 +54,13 @@ class How_to_reach extends CI_Controller{
 		*/
 		public function show(){
 		$this->load->database();
+			echo "<br><br><br>";
 			$this->load->helper(array('form', 'url'));
 
 			$this->load->library('form_validation');	
 			$this->load->model('Md_how_to_reach');
 			$this->Md_how_to_reach->show_how_to_reach();
+			$this->load->view('profile');
 		}
 			
 		

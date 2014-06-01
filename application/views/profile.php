@@ -137,11 +137,20 @@
 			
 			<!-- Start of the left section of the page, will show features like profile pic, ability to edit it
 			and the list of all the followers and the persons followed by the person-->	
+<<<<<<< HEAD
 			<div class="col-md-3 " style="margin-left:45px;">
 					<p>
 					<img src="<?php echo $this->config->base_url();?>images/pp.png" width="230px"  height="207" alt="Status Owner"   />
 					</p>
 					
+=======
+			<div class="col-md-3">
+				<p>
+					<img src="../assets/uploads/profilepics/<?php echo $profilepic?>" width="262px" height="207px" alt="Status Owner"  />
+				</p>
+				
+				<div class="btn-group btn-group-justified">
+>>>>>>> ce46340f861221b76e1fae40d9126d9c476f37c2
   					<div class="btn-group">
     					<button type="button" class="btn btn-default" style="width:230px">Edit My Profile</button>
   					</div>
@@ -152,6 +161,7 @@
                     <div class="panel-heading" >
                     	Follows<span class="badge pull-right">42</span>
                     </div>
+<<<<<<< HEAD
                 </div>
                 
                 <div class="thumbnail" style="height:150px;width:230px;margin-top:-14px;">
@@ -160,6 +170,15 @@
 			
 
 				<div class="panel panel-default" style="margin-top:-8px;width:230px;">	
+=======
+                    <div class="panel-heading" >
+                    	<a href="<?php echo $this->config->base_url();?>index.php/profilepic">Change profile Picture<span class="badge pull-right"></span></a>
+                    </div>
+                  </div>
+               <!-- </div>-->
+			
+				<div class="panel panel-default" style="margin-top:-8px;width:265px;">	
+>>>>>>> ce46340f861221b76e1fae40d9126d9c476f37c2
                     <div class="panel-heading">
                     	Show All Friends<span class="badge pull-right">42</span>
                     </div>

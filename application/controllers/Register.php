@@ -39,10 +39,15 @@ class Register extends CI_Controller{
 			$status=$this->Md_register->register($param);
 			if($status==1)
 			{
-				
-				$data['succ'] = "successfully registered";
-				
-				$this->load->view('done1',$data);
+				$this->load->model('Md_profile');
+				$user_id = $this->Md_profile->get_userid($parameter['email']);
+				if($parameter['gender']=="Male")
+				$default = "male.png";
+				else
+				$default = "Female.png";
+				$this->load->model('Md_profilepic');
+				$this->Md_profilepic->add_profilepic($user_id,$default);
+				$this->load->view('startpage');
 			}
 			else if($status==2)
 			{

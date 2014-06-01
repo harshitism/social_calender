@@ -19,4 +19,23 @@ class Md_profile extends CI_Model {
 		return $name;
 		}
 	}
+	public function get_profilepic($user_id)
+	{
+		$this->load->database();
+		$this->db->where('user_id',$user_id);
+		$this->db->select('*');
+		$pic = $this->db->get('profile_pic');
+		foreach($pic->result() as $row)
+		return $row->pic_name;
+	}
+	public function get_userid($username)
+	{
+		$this->load->database();
+		$this->db->where("(email = '$username' OR contact = '$username')");
+		$this->db->select('user_id');
+		$query = $this->db->get('user');
+		foreach($query->result() as $row)
+		return $row->user_id;
+	}
 }
+?>

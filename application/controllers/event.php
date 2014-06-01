@@ -51,10 +51,12 @@ class Event extends CI_Controller{
 		public function show(){
 		$this->load->database();
 			$this->load->helper(array('form', 'url'));
-
+	
 			$this->load->library('form_validation');	
+			echo "<br><br><br>";
 			$this->load->model('Md_event');
 			$this->Md_event->show_event();
+			$this->load->view('profile');
 		}
 }
 ?>
