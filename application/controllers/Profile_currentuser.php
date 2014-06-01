@@ -6,6 +6,7 @@ class Profile_currentuser extends CI_Controller {
 		$data['user_id'] = $user_id;
 		$this->load->model('Md_profile');
 		$data['name'] = $this->Md_profile->get_name($user_id);
+		$data['profilepic'] = $this->Md_profile->get_profilepic($user_id);
 		$this->load->model('Md_event');
 		$even = $this->Md_event->get_event($user_id);
 		//$even = array(array("sem prep","fghgh"),array("sem exam","jgffjgjh"),array("sem res","gugugu"));
@@ -22,3 +23,4 @@ class Profile_currentuser extends CI_Controller {
 		$this->load->view('profile',$data);
 	}
 }
+?>

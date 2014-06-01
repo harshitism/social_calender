@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 21, 2014 at 02:33 AM
+-- Generation Time: Jun 01, 2014 at 07:25 AM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.12
 
@@ -30,7 +30,7 @@ USE `social_startup`;
 
 CREATE TABLE IF NOT EXISTS `comment_details` (
   `comment_id` int(100) NOT NULL,
-  `comment` varchar(1000) NOT NULL,
+  `comment` varchar(500) NOT NULL,
   PRIMARY KEY (`comment_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -44,9 +44,9 @@ CREATE TABLE IF NOT EXISTS `comment_user` (
   `comment_id` int(100) NOT NULL AUTO_INCREMENT,
   `user_id` int(100) NOT NULL,
   `event_id` int(100) NOT NULL,
-  `date_time` varchar(100) NOT NULL,
+  `date_time` varchar(150) NOT NULL,
   PRIMARY KEY (`comment_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -57,9 +57,12 @@ CREATE TABLE IF NOT EXISTS `comment_user` (
 CREATE TABLE IF NOT EXISTS `event` (
   `event_id` int(100) NOT NULL AUTO_INCREMENT,
   `user_id` int(100) NOT NULL,
+  `event_name` varchar(100) NOT NULL,
+  `event_desc` varchar(500) NOT NULL,
   `start_date` varchar(50) NOT NULL,
   `end_date` varchar(50) NOT NULL,
-  PRIMARY KEY (`event_id`)
+  PRIMARY KEY (`event_id`),
+  UNIQUE KEY `event_id` (`event_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -119,8 +122,66 @@ CREATE TABLE IF NOT EXISTS `following` (
 
 CREATE TABLE IF NOT EXISTS `friend` (
   `user_id` int(100) NOT NULL,
+  `friend_id` int(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `how_to_reach`
+--
+
+CREATE TABLE IF NOT EXISTS `how_to_reach` (
+  `event_id` int(100) NOT NULL,
+  `latitude` varchar(100) NOT NULL,
+  `longitude` varchar(100) NOT NULL,
+  `event_date` varchar(100) NOT NULL,
+  PRIMARY KEY (`event_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `invite`
+--
+
+CREATE TABLE IF NOT EXISTS `invite` (
+  `invited_friend` text NOT NULL,
   `friend_id` int(100) NOT NULL,
-  `friendship` int(10) NOT NULL DEFAULT '0'
+  `event_id` int(100) NOT NULL,
+  `location` text NOT NULL,
+  `invited_by` varchar(100) NOT NULL,
+  PRIMARY KEY (`friend_id`),
+  UNIQUE KEY `event_id` (`event_id`),
+  UNIQUE KEY `friend_id` (`friend_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `photo`
+--
+
+CREATE TABLE IF NOT EXISTS `photo` (
+  `photo_id` int(100) NOT NULL AUTO_INCREMENT,
+  `event_id` int(100) NOT NULL,
+  `added_by` int(100) NOT NULL,
+  `path` varchar(100) NOT NULL,
+  `date_added` varchar(100) NOT NULL,
+  PRIMARY KEY (`photo_id`),
+  UNIQUE KEY `photo_id` (`photo_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `profile_pic`
+--
+
+CREATE TABLE IF NOT EXISTS `profile_pic` (
+  `user_id` int(100) NOT NULL,
+  `pic_name` varchar(500) NOT NULL,
+  PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -139,8 +200,24 @@ CREATE TABLE IF NOT EXISTS `user` (
   `contact` varchar(20) NOT NULL,
   `password` varchar(50) NOT NULL,
   `gender` varchar(10) NOT NULL,
-  PRIMARY KEY (`user_id`),
-  KEY `user_id` (`user_id`)
+  `hash` varchar(25) NOT NULL,
+  `verify` varchar(10) NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `video`
+--
+
+CREATE TABLE IF NOT EXISTS `video` (
+  `video_id` int(100) NOT NULL AUTO_INCREMENT,
+  `event_id` int(10) NOT NULL,
+  `added_by` text NOT NULL,
+  `path` text NOT NULL,
+  `date_added` varchar(100) NOT NULL,
+  PRIMARY KEY (`video_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

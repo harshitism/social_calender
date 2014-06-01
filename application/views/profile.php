@@ -136,7 +136,7 @@
 			and the list of all the followers and the persons followed by the person-->	
 			<div class="col-md-3">
 				<p>
-					<img src="http://sahilmutneja.com/calendar/images/pp.png" width="262px" height="207px" alt="Status Owner"  />
+					<img src="../assets/uploads/profilepics/<?php echo $profilepic?>" width="262px" height="207px" alt="Status Owner"  />
 				</p>
 				
 				<div class="btn-group btn-group-justified">
@@ -155,11 +155,12 @@
                     <div class="panel-heading" >
                     	<a href="<?php echo $this->config->base_url();?>index.php/following/extract_following/<?php echo $user_id;?>">Followings<span class="badge pull-right"><?php echo $followings;?></span></a>
                     </div>
-                </div>
+                    <div class="panel-heading" >
+                    	<a href="<?php echo $this->config->base_url();?>index.php/profilepic">Change profile Picture<span class="badge pull-right"></span></a>
+                    </div>
+                  </div>
                <!-- </div>-->
 			
-
-
 				<div class="panel panel-default" style="margin-top:-8px;width:265px;">	
                     <div class="panel-heading">
                     	<a href="<?php echo $this->config->base_url();?>index.php/friend/extract_friend/<?php echo $user_id;?>">Show All Friends<span class="badge pull-right"><?php echo $friends;?></span></a>
