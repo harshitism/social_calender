@@ -48,10 +48,10 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'mysql6.000webhost.com';
-$db['default']['username'] = 'a1086228_root';    
-$db['default']['password'] = 'physics1';                       //needs to be configures
-$db['default']['database'] = 'a1086228_social';  
+$db['default']['hostname'] = 'localhost';
+$db['default']['username'] = 'root';    
+$db['default']['password'] = '';                       //needs to be configures
+$db['default']['database'] = 'social_startup';  
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
