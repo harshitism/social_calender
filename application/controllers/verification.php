@@ -8,19 +8,18 @@ class Verification extends CI_Controller {
 		}
 		
 	function index($hash)
-       	{
+	{
 		$this->load->database();
-		//echo "hello";
 		$exist = $this->db->query("SELECT * FROM user WHERE hash = '".$hash."'");
 		if($exist->num_rows()==0)
 		{
-			echo "invalid code";
-			//$this->load->view('done1');
-			return 0;
+			$this->load->view('link_expired');
 		}
-		$this->db->query("UPDATE user SET verify = '1/1/1' where hash = '".$hash."'");
-		$data['succ']='Email Verification Successfull';
-		$this->load->view('done1',$data);
+		else
+		{
+		$this->db->query("UPDATE user SET verify = '1/1/1', hash='' where hash = '".$hash."'");
+		$this->load->view('user_profile');
+		}
 	}
 }
 		
