@@ -13,10 +13,30 @@
     <link href="assets/css/bootstrap.css" rel="stylesheet" >
     <link href="assets/css/custom.css" rel="stylesheet" >
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.css">
     <script src="assets/js/jquery-1.10.2.js" ></script>
-  <script src="assets/js/bootstrap.js" ></script>
+    <script src="assets/js/bootstrap.js" ></script>
     <script src="assets/js/jquery.js" ></script>
-    
+    <script type="text/javascript" src="assets/js/jquery-1.9.0.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="assets/js/jquery-1.11.0.min.js"><\/script>')</script>
+    <!-- custom scrollbar plugin -->
+    <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script>
+      (function($){
+        $(window).load(function(){
+          
+          $("#horizontal-scroll").mCustomScrollbar({
+            axis:"x",
+            theme:"dark-thin",
+            advanced:{autoExpandHorizontalScroll:true},
+             scrollbarPosition:"inside"
+          });  
+        });
+      })(jQuery);
+    </script>
+
     <script>
 <<<<<<< HEAD
 		$(document).ready(function(){
@@ -79,34 +99,43 @@
                 <div class="pull-left white font14 text-center header_block" style="margin:10px 0 0;padding:5px;" id="header_name">Harshit Gupta</div>
                 <div class="pull-right white font14  header_block" style="border-left:solid 1px #828282;margin:10px 0 0;padding:5px;width:150px;">
                   <span style="margin-left:25px">Settings</span><br><br>
-          <span class="font12 pull-left" style="color:#D5D5D5;text-indent:25px">Account Settings</span><br>
-                    <span class="font12 pull-left" style="color:#D5D5D5;text-indent:25px">Help Center</span><br>
-          <span class="font12 pull-left" style="color:#D5D5D5;text-indent:25px">Activity Logs</span><br>
-                    <span class="font12 pull-left" style="color:#D5D5D5;text-indent:25px">Privacy Settings</span><br>
-                    <span class="font12 pull-left" style="color:#D5D5D5;text-indent:25px">Logout</span><br>
-        </div>
+                  <span class="font12 pull-left" style="color:#D5D5D5;text-indent:25px">Account Settings</span><br>
+                  <span class="font12 pull-left" style="color:#D5D5D5;text-indent:25px">Help Center</span><br>
+                  <span class="font12 pull-left" style="color:#D5D5D5;text-indent:25px">Activity Logs</span><br>
+                  <span class="font12 pull-left" style="color:#D5D5D5;text-indent:25px">Privacy Settings</span><br>
+                  <span class="font12 pull-left" style="color:#D5D5D5;text-indent:25px">Logout</span><br>
+                </div>
                 
                 <div class="pull-right white font14 text-center header_block" style="border-left:solid 1px #828282;margin:10px 0 0;padding:5px;width:150px;">
                   <span>Following &nbsp;&nbsp;<span class="font10 " style="color:#ABABAB"><strong>43</strong></span></span>
-                  <div style="height:125px;margin-top:20px;overflow:auto;">
-                      <span class="font12 pull-left" style="color:#D5D5D5;text-indent:25px">Nimish Agarwal</span><br>
-                        <span class="font12 pull-left" style="color:#D5D5D5;text-indent:25px">Sumit Awasthi</span><br>
-                        <span class="font12 pull-left" style="color:#D5D5D5;text-indent:25px">Navendu Saxena</span><br>
-                        <span class="font12 pull-left" style="color:#D5D5D5;text-indent:25px">Rohit Kumar</span><br>
-                        <span class="font12 pull-left" style="color:#D5D5D5;text-indent:25px">Sahil Mukteja</span><br>
+                  <div class="content mCustomScrollbar light _mCS_2 mCS-autoHide" data-mcs-theme="mCSB_dragger" style="height:124px;margin-top:20px;overflow:auto;">
+                        <span class="font12 pull-left" style="color:#D5D5D5;text-indent:12px">Nimish Agarwal</span><br>
+                        <span class="font12 pull-left" style="color:#D5D5D5;text-indent:12px">Sumit Awasthi</span><br>
+                        <span class="font12 pull-left" style="color:#D5D5D5;text-indent:12px">Navendu Saxena</span><br>
+                        <span class="font12 pull-left" style="color:#D5D5D5;text-indent:12px">Rohit Kumar</span><br>
+                        <span class="font12 pull-left" style="color:#D5D5D5;text-indent:12px">Sahil Mukteja</span><br>
+                        <span class="font12 pull-left" style="color:#D5D5D5;text-indent:12px">Nimish Agarwal</span><br>
+                        <span class="font12 pull-left" style="color:#D5D5D5;text-indent:12px">Sumit Awasthi</span><br>
+                        <span class="font12 pull-left" style="color:#D5D5D5;text-indent:12px">Navendu Saxena</span><br>
+                        <span class="font12 pull-left" style="color:#D5D5D5;text-indent:12px">Rohit Kumar</span><br>
+                        <span class="font12 pull-left" style="color:#D5D5D5;text-indent:12px">Sahil Mukteja</span><br>
                     </div>
                 </div>
                 
-                <div class="pull-right white font14 text-center header_block" style="margin:10px 0 0;padding:5px;width:150px;">
+                <div class="pull-right white font14 text-center header_block" style="margin:10px 0 0 10px;padding:5px;width:150px;">
                   <span>Followers &nbsp;&nbsp;<span class="font10" style="color:#ABABAB"><strong>43</strong></span></span>
-          <div style="height:135px;margin-top:20px;">
-                      <span class="font12 pull-left" style="color:#D5D5D5;text-indent:25px">Nimish Agarwal</span><br>
-                        <span class="font12 pull-left" style="color:#D5D5D5;text-indent:25px">Sumit Awasthi</span><br>
-                        <span class="font12 pull-left" style="color:#D5D5D5;text-indent:25px">Navendu Saxena</span><br>
-                        <span class="font12 pull-left" style="color:#D5D5D5;text-indent:25px">Rohit Kumar</span><br>
-                        <span class="font12 pull-left" style="color:#D5D5D5;text-indent:25px">Sahil Mukteja</span><br>
-
-                    </div>
+                   <div class="content mCustomScrollbar light _mCS_2 mCS-autoHide" data-mcs-theme="mCSB_dragger" style="height:124px;margin-top:20px;">
+                        <span class="font12 pull-left" style="color:#D5D5D5;text-indent:13px">Nimish Agarwal</span><br>
+                        <span class="font12 pull-left" style="color:#D5D5D5;text-indent:13px">Sumit Awasthi</span><br>
+                        <span class="font12 pull-left" style="color:#D5D5D5;text-indent:13px">Navendu Saxena</span><br>
+                        <span class="font12 pull-left" style="color:#D5D5D5;text-indent:13px">Rohit Kumar</span><br>
+                        <span class="font12 pull-left" style="color:#D5D5D5;text-indent:13px">Sahil Mukteja</span><br>
+                        <span class="font12 pull-left" style="color:#D5D5D5;text-indent:13px">Nimish Agarwal</span><br>
+                        <span class="font12 pull-left" style="color:#D5D5D5;text-indent:13px">Sumit Awasthi</span><br>
+                        <span class="font12 pull-left" style="color:#D5D5D5;text-indent:13px">Navendu Saxena</span><br>
+                        <span class="font12 pull-left" style="color:#D5D5D5;text-indent:13px">Rohit Kumar</span><br>
+                        <span class="font12 pull-left" style="color:#D5D5D5;text-indent:13px">Sahil Mukteja</span><br>
+                      </div>
                 </div>
 <<<<<<< HEAD
                 <div class="pull-left white font14 text-center header_block" style="margin:10px;padding:5px;margin-right:0px;margin-left:0px;" id="header_name">Harshit Gupta</div>
@@ -162,71 +191,141 @@
                 
         </div>
      </div>
-    
-    <div style="width:1200px;margin-top:20px;margin-left:auto;margin-right:auto;height:200px">
-      <div style="height:150px;width:150px;border:solid 1px #72175a;margin:10px;" class="pull-left">
-          <div class="font14 text-center purple"><strong>Event 1</strong></div>
-      <div class="font12 text-center purple">2-JUL-2014</div>
+
+    <div id="horizontal-scroll" class="mCS-autoHide" style="width:1250px;margin-top:20px;margin-left:auto;margin-right:auto;oveflow-x:auto;overflow-y:hidden">
+     <table style=" border-collapse: separate; border-spacing: 24px 0; ">
+      <tbody>
+        <tr>
+          <td>
+            <div style="height:150px;width:150px;border:solid 1px #72175a;">
+           <div class="font14 text-center purple"><strong>Event 1</strong></div>
+           <div class="font12 text-center purple">2-JUL-2014</div>
+           <div class="font12 text-center purple">11:00 PM</div>
+           <div class="font12 text-center purple">@ Sahara Mall,Delhi</div>
+          </td>
+          <td>
+            <div style="height:150px;width:150px;border:solid 1px #72175a;">
+           <div class="font14 text-center purple"><strong>Event 1</strong></div>
+           <div class="font12 text-center purple">2-JUL-2014</div>
+           <div class="font12 text-center purple">11:00 PM</div>
+           <div class="font12 text-center purple">@ Sahara Mall,Delhi</div>
+          </td>
+          <td>
+            <div style="height:150px;width:150px;border:solid 1px #72175a;">
+           <div class="font14 text-center purple"><strong>Event 1</strong></div>
+           <div class="font12 text-center purple">2-JUL-2014</div>
+           <div class="font12 text-center purple">11:00 PM</div>
+           <div class="font12 text-center purple">@ Sahara Mall,Delhi</div>
+          </td>
+          <td>
+            <div style="height:150px;width:150px;border:solid 1px #72175a;">
+           <div class="font14 text-center purple"><strong>Event 1</strong></div>
+           <div class="font12 text-center purple">2-JUL-2014</div>
+           <div class="font12 text-center purple">11:00 PM</div>
+           <div class="font12 text-center purple">@ Sahara Mall,Delhi</div>
+          </td>
+          <td>
+            <div style="height:150px;width:150px;border:solid 1px #72175a;">
+           <div class="font14 text-center purple"><strong>Event 1</strong></div>
+           <div class="font12 text-center purple">2-JUL-2014</div>
+           <div class="font12 text-center purple">11:00 PM</div>
+           <div class="font12 text-center purple">@ Sahara Mall,Delhi</div>
+          </td>
+          <td>
+            <div style="height:150px;width:150px;border:solid 1px #72175a;">
+           <div class="font14 text-center purple"><strong>Event 1</strong></div>
+           <div class="font12 text-center purple">2-JUL-2014</div>
+           <div class="font12 text-center purple">11:00 PM</div>
+           <div class="font12 text-center purple">@ Sahara Mall,Delhi</div>
+          </td>
+          <td>
+            <div style="height:150px;width:150px;border:solid 1px #72175a;">
+           <div class="font14 text-center purple"><strong>Event 1</strong></div>
+           <div class="font12 text-center purple">2-JUL-2014</div>
+           <div class="font12 text-center purple">11:00 PM</div>
+           <div class="font12 text-center purple">@ Sahara Mall,Delhi</div>
+          </td>
+          <td>
+            <div style="height:150px;width:150px;border:solid 1px #72175a;">
+           <div class="font14 text-center purple"><strong>Event 1</strong></div>
+           <div class="font12 text-center purple">2-JUL-2014</div>
+           <div class="font12 text-center purple">11:00 PM</div>
+           <div class="font12 text-center purple">@ Sahara Mall,Delhi</div>
+          </td>
+          <td>
+            <div style="height:150px;width:150px;border:solid 1px #72175a;">
+           <div class="font14 text-center purple"><strong>Event 1</strong></div>
+           <div class="font12 text-center purple">2-JUL-2014</div>
+           <div class="font12 text-center purple">11:00 PM</div>
+           <div class="font12 text-center purple">@ Sahara Mall,Delhi</div>
+          </td>
+          <td>
+            <div style="height:150px;width:150px;border:solid 1px #72175a;">
+           <div class="font14 text-center purple"><strong>Event 1</strong></div>
+           <div class="font12 text-center purple">2-JUL-2014</div>
+           <div class="font12 text-center purple">11:00 PM</div>
+           <div class="font12 text-center purple">@ Sahara Mall,Delhi</div>
+          </td>
+          <td>
+            <div style="height:150px;width:150px;border:solid 1px #72175a;">
+           <div class="font14 text-center purple"><strong>Event 1</strong></div>
+           <div class="font12 text-center purple">2-JUL-2014</div>
+           <div class="font12 text-center purple">11:00 PM</div>
+           <div class="font12 text-center purple">@ Sahara Mall,Delhi</div>
+          </td>
+        </tr>
+      </tbody> 
+     </table>
+     </div>
+     
+   <div style="margin-top:25px;"> 
+
+      <div class="col-md-3" style="height:600px; border-right:solid 1px #ABABAB">
+          
+              <div class="content mCustomScrollbar light" data-mcs-theme="minimal-dark" style="height:200px;width:250px;border:solid 1px #72175a;margin-top:20px;margin-left:25px;overflow:auto">
+              <table class="table table-striped">
+              <thead>
+              <tr>
+            <th colspan="2" class="text-center" style="padding:12px">Followers</th> 
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td><img src="images/default-user.jpg" width="30px"></td>
+            <td>Nimish Agarwal</td>
+            </tr>
+            <tr>
+            <td><img src="images/default-user.jpg" width="30px"></td>
+            <td>Harshit Gupta</td>
+            </tr>
+            <tr>
+            <td><img src="images/default-user.jpg" width="30px"></td>
+            <td>Sahil Mukteja</td>
+            </tr>
+            <tr>
+            <td><img src="images/default-user.jpg" width="30px"></td>
+            <td>Sumit Awasthi</td>
+            </tr>
+            <tr>
+            <td><img src="images/default-user.jpg" width="30px"></td>
+            <td>Navendu Saxena</td>
+            </tr>
+            <tr>
+            <td><img src="images/default-user.jpg" width="30px"></td>
+            <td>Rohit Kumar</td>
+            </tr>
+            </tbody>
+          </table>
+          </div>
+          
+          <div style="height:200px;width:250px;border:solid 1px #72175a;margin-top:50px;margin-left:25px">
+            <div class="font16 text-center" style="border-bottom:solid 1px #72175a;padding:10px">Suggestions</div>
+            <div class="font14 text-center purple" style="margin-top:15px"><strong>Event 1</strong></div>
+            <div class="font12 text-center purple">2-JUL-2014</div>
             <div class="font12 text-center purple">11:00 PM</div>
             <div class="font12 text-center purple">@ Sahara Mall,Delhi</div>
-            
-        </div>
-        <div style="height:150px;width:150px;border:solid 1px #72175a;margin:10px;" class="pull-left"></div>
-        <div style="height:150px;width:150px;border:solid 1px #72175a;margin:10px;" class="pull-left"></div>
-        <div style="height:150px;width:150px;border:solid 1px #72175a;margin:10px;" class="pull-left"></div>
-        <div style="height:150px;width:150px;border:solid 1px #72175a;margin:10px;" class="pull-left"></div>
-        <div style="height:150px;width:150px;border:solid 1px #72175a;margin:10px;" class="pull-left"></div>
-        <div style="height:150px;width:150px;border:solid 1px #72175a;margin:10px;" class="pull-left"></div>
-      
-    </div>
-    
-
-   <div class=""> 
-      <div class="col-md-3 text-center" style="height:600px; border-right:solid 1px #ABABAB">
-          
-          <div style="height:200px;width:250px;border:solid 1px #72175a;margin-top:20px;margin-left:25px;overflow:auto">
-          <table class="table table-striped">
-          <thead>
-          <tr>
-        <th colspan="2" class="text-center" style="padding:10px">Followers</th> 
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-        <td><img src="images/default-user.jpg" width="30px"></td>
-        <td>Nimish Agarwal</td>
-        </tr>
-        <tr>
-        <td><img src="images/default-user.jpg" width="30px"></td>
-        <td>Harshit Gupta</td>
-        </tr>
-        <tr>
-        <td><img src="images/default-user.jpg" width="30px"></td>
-        <td>Sahil Mukteja</td>
-        </tr>
-        <tr>
-        <td><img src="images/default-user.jpg" width="30px"></td>
-        <td>Sumit Awasthi</td>
-        </tr>
-        <tr>
-        <td><img src="images/default-user.jpg" width="30px"></td>
-        <td>Navendu Saxena</td>
-        </tr>
-        <tr>
-        <td><img src="images/default-user.jpg" width="30px"></td>
-        <td>Rohit Kumar</td>
-        </tr>
-        </tbody>
-      </table>
-      </div>
-      
-      <div style="height:200px;width:250px;border:solid 1px #72175a;margin-top:50px;margin-left:25px">
-        <div class="font16" style="border-bottom:solid 1px #72175a;padding:10px">Suggestions</div>
-        <div class="font14 text-center purple" style="margin-top:15px"><strong>Event 1</strong></div>
-        <div class="font12 text-center purple">2-JUL-2014</div>
-              <div class="font12 text-center purple">11:00 PM</div>
-              <div class="font12 text-center purple">@ Sahara Mall,Delhi</div>
-      </div>
+          </div>
+        
         </div>
         
       <div class="col-md-6">
@@ -247,7 +346,7 @@
                         <span class="glyphicon glyphicon-facetime-video"></span></button>
                         <button type="button" class="btn btn-default" style="background-color: #f5f5f5;border:none;" title="How To Reach">
                         <span class="glyphicon glyphicon-map-marker"></span></button>                              
-                         <input type="submit" name="submit" value="Publish" class="btn btn-primary" style="margin-left:180px"> 
+                         <input type="submit" name="submit" value="Publish" class="btn btn-primary" style="margin-left:180px">          
                     </div>
 
         </div>
@@ -266,9 +365,9 @@
           <div style="height:150px;width:290px;border:solid 1px #72175a;margin:15px;" class="pull-left"></div>
      </div>
      
-     <div class="col-md-3 text-center" style="height:600px;border-left:solid 1px #ABABAB">
-          <div style="height:200px;width:250px;border:solid 1px #72175a;margin-left:25px">
-        <div class="font16" style="border-bottom:solid 1px #72175a;padding:10px">Upcoming Event</div>
+     <div class="col-md-3" style="height:600px;border-left:solid 1px #ABABAB">
+          <div style="height:200px;width:250px;border:solid 1px #72175a;margin-left:25px;margin-top:20px">
+        <div class="font16 text-center" style="border-bottom:solid 1px #72175a;padding:10px">Upcoming Event</div>
         <div class="font14 text-center purple" style="margin-top:15px"><strong>Event 1</strong></div>
         <div class="font12 text-center purple">2-JUL-2014</div>
               <div class="font12 text-center purple">11:00 PM</div>
@@ -276,7 +375,7 @@
       </div>
 
       <div style="height:200px;width:250px;border:solid 1px #72175a;margin-left:25px;margin-top:50px">
-        <div class="font16" style="border-bottom:solid 1px #72175a;padding:10px">Intrested In&nbsp??</div>
+        <div class="font16 text-center" style="border-bottom:solid 1px #72175a;padding:10px">Intrested In&nbsp??</div>
         <div class="font14 text-center purple" style="margin-top:15px"><strong>Event 1</strong></div>
         <div class="font12 text-center purple">2-JUL-2014</div>
               <div class="font12 text-center purple">11:00 PM</div>
