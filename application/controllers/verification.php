@@ -10,6 +10,7 @@ class Verification extends CI_Controller {
 	function index($hash)
 	{
 		$this->load->database();
+<<<<<<< HEAD
 		//echo "hello";
 		$exist = $this->db->query("SELECT * FROM user WHERE hash = '".$hash."'");
 		if($exist->num_rows()==0)
@@ -20,6 +21,18 @@ class Verification extends CI_Controller {
 		}
 		$this->db->query("UPDATE user SET verify = '1/1/1' where hash = '".$hash."'");
 		$this->load->view('done1');
+=======
+		$exist = $this->db->query("SELECT * FROM user WHERE hash = '".$hash."'");
+		if($exist->num_rows()==0)
+		{
+			$this->load->view('link_expired');
+		}
+		else
+		{
+		$this->db->query("UPDATE user SET verify = '1/1/1', hash='' where hash = '".$hash."'");
+		$this->load->view('user_profile');
+		}
+>>>>>>> eb70b087e35e35c42e9233f89baa4658e04346f8
 	}
 }
 		

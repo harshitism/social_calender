@@ -19,12 +19,18 @@ class Start extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('login');
+		$this->load->view('startpage');
 	}
 	public function forgot()
 	{
 		$this->load->view('forgot_password');
 	}
+
+	public function profile()
+	{
+		$this->load->view('profile');
+	}
+
 	
 }
 

@@ -111,7 +111,7 @@ function ageValidate(value)
 
 function emailValidate(val)
 {
-
+	//alert("hi");
 	emailCheck=1;
 var x=val.value;
 var length=x.length;
@@ -235,3 +235,18 @@ function formValidate()
 	else
 	return false;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
