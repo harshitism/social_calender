@@ -47,12 +47,14 @@ class Md_profile extends CI_Model {
 		$res = $this->db->get('user_details');
 		if($res->num_rows()!=0)
 		{
+			foreach($res->result() as $row)
+			{
 			$details['school'] = $row->school;
 			$details['college'] = $row->college;
 			$details['university'] = $row->university;
 			$details['occupation'] =  $row->occupation;
 			$details['company'] = $row->company;
-			$details['job_designation'] = $row->job_designatgion;
+			$details['job_designation'] = $row->job_designation;
 			$details['work_email'] = $row->work_email;
 			$details['home_state'] = $row->home_state;
 			$details['home_city'] = $row->home_city;
@@ -61,6 +63,7 @@ class Md_profile extends CI_Model {
 			$details['cur_city'] = $row->cur_city;
 			$details['cur_pincode'] = $row->cur_pincode;
 			return $details;
+			}
 		}
 		else
 		return 0;

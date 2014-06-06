@@ -98,7 +98,7 @@ class Update_userdetails extends CI_Controller {
 				if(!$this->upload->do_upload('pic'))
 				{
 					$value = $this->upload->display_errors();
-					redirect('/editprofile?error7=$value');
+					redirect('/editprofile?error7='.$value.'');
 				}
 				else
 				{
@@ -118,15 +118,22 @@ class Update_userdetails extends CI_Controller {
 	public function address()
 	{
 		$this->load->helper(array('form', 'url'));
+		$this->load->library('form_validation');
 		$parameter = array('home_state' => $this->input->post('home_state'),
 		'home_city' => $this->input->post('home_city'),
 		'home_pincode' => $this->input->post('home_pincode'),
 		'cur_state' => $this->input->post('cur_state'),
 		'cur_city' => $this->input->post('cur_city'),
 		'cur_pincode' => $this->input->post('cur_pincode'));
+		$this->form_validation->set_rules('home_pincode', 'Home Pin Code', 'required|min_length[6]|max_length[6]|numeric');
+		$this->form_validation->set_rules('cur_pincode', 'Current Pin Code', 'required|min_length[6]|max_length[6]|numeric');
 		$this->load->model('Md_update_userdetails');
 		$param = implode(",",$parameter);
-		if($this->Md_update_userdetails->address($param))
+		if ($this->form_validation->run() == FALSE)
+		{
+			redirect('/editprofile?validation_error=true');
+		}
+		else if($this->Md_update_userdetails->address($param))
 		{
 			redirect('/editprofile?update=true');
 		}

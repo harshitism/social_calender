@@ -131,12 +131,13 @@
           <!-- End of Nav Pills -->
           <div class="panel-body">
            <div class="tab-content panel-body">
-              
               <div class="tab-pane active in" id="basicinfo">
                     <div class="col-md-8 ">
                      <h3>Basic Information</h3>
-                     <?php if(isset($error))
-					echo $error."<br><br>";?>
+                     <?php
+					 if(isset($error))
+			 echo $error."<br><br>";
+			 ?>
                     <form class="form-horizontal" action="<?php echo $this->config->base_url();?>index.php/update_userdetails/basicinfo" method="post" role="form" >
                           
                           <div class="form-group">
@@ -245,10 +246,14 @@
               
               <!-- End of Basic Info -->
 
-              <div class="tab-pane fade panel-body" id="work">
+           <div class="tab-pane fade panel-body" id="work">
                     
                     <div class="col-md-8 ">
                        <h3>Education</h3>
+                       <?php
+					   if(isset($error))
+				    	 echo $error."<br><br>";
+						 ?>
                         <form class="form-horizontal" action="<?php echo $this->config->base_url();?>index.php/update_userdetails/education_work" method="post" role="form">
                           
                           <div class="form-group">
@@ -314,8 +319,10 @@
                 </div>
 
               <!-- End of Work & Education -->
-              <div class="tab-pane fade panel-body" id="profile" style="height:400px">
+            <div class="tab-pane fade panel-body" id="profile" style="height:400px">
 			<?php $this->load->helper('form');
+			 if(isset($error))
+			 echo $error."<br><br>";
              echo form_open_multipart(''.$this->config->base_url().'index.php/update_userdetails/profilepic');
                   
                 echo "<div class='col-md-4' style='margin-top:40px;margin-left:100px'>";
@@ -333,15 +340,18 @@
                         </div>
                     </div>
                     <div class='col-md-5 pull-right' style='margin-top:30px;'>
-                    <img src='../assets/uploads/profilepics/".$profilepic."' alt=''>
+                    <img src='../assets/uploads/profilepics/".$profilepic."' width='262px' height='207px' alt='Status Owner'>
                     </div>";
 			  ?>
               </div>
               <!-- End of Profile Photo Change -->
-
-              <div class="tab-pane fade panel-body" id="location">
+				<div class="tab-pane fade panel-body" id="location">
                   <div class="col-md-8 ">
                        <h3>Home Town</h3>
+                       <?php
+					   if(isset($error))
+			 echo $error."<br><br>";
+			 ?>
                         <form class="form-horizontal" action="<?php echo $this->config->base_url();?>index.php/update_userdetails/address" method="post" role="form">
                           
                           <div class="form-group">
@@ -401,6 +411,7 @@
                        </form>
                     </div>
                 </div>
+             
                </div>
             </div>
           </div>

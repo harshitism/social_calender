@@ -32,7 +32,7 @@ class Editprofile extends CI_Controller {
 		$data['home_state'] = $details['home_state'];
 		$data['home_city'] = $details['home_city'];
 		$data['home_pincode'] = $details['home_pincode'];
-		$data['cur_state'] = $details['cur_pincode'];
+		$data['cur_state'] = $details['cur_state'];
 		$data['cur_city'] = $details['cur_city'];
 		$data['cur_pincode'] = $details['cur_pincode'];
 		$data['profilepic'] = $pic;

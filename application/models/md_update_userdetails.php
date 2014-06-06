@@ -101,8 +101,9 @@ class Md_update_userdetails extends CI_Model {
 		$this->load->library('session');
 		$user_id = $this->session->userdata('user_id');
 		$newinfo = explode(",",$param);
-		$arr = array('school' => $newinfo[0],
-			'colloge' => $newinfo[1],
+		$arr = array('user_id' => $user_id,
+			'school' => $newinfo[0],
+			'college' => $newinfo[1],
 			'university' => $newinfo[2],
 			'occupation' => $newinfo[3],
 			'company' => $newinfo[4],
@@ -113,7 +114,6 @@ class Md_update_userdetails extends CI_Model {
 		$res = $this->db->get('user_details');
 		if($res->num_rows()==0)
 		{
-			$this->db->where('user_id',$user_id);
 			$this->db->insert('user_details',$arr);
 			if($this->db->affected_rows()==1)
 			return 1;
@@ -134,7 +134,8 @@ class Md_update_userdetails extends CI_Model {
 		$this->load->library('session');
 		$user_id = $this->session->userdata('user_id');
 		$newinfo = explode(",",$param);
-		$arr = array('home_state' => $newinfo[0],
+		$arr = array('user_id' => $user_id,
+			'home_state' => $newinfo[0],
 			'home_city' => $newinfo[1],
 			'home_pincode' => $newinfo[2],
 			'cur_state' => $newinfo[3],
@@ -145,7 +146,6 @@ class Md_update_userdetails extends CI_Model {
 		$res = $this->db->get('user_details');
 		if($res->num_rows()==0)
 		{
-			$this->db->where('user_id',$user_id);
 			$this->db->insert('user_details',$arr);
 			if($this->db->affected_rows()==1)
 			return 1;
