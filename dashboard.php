@@ -202,6 +202,7 @@
            <div class="font12 text-center purple">2-JUL-2014</div>
            <div class="font12 text-center purple">11:00 PM</div>
            <div class="font12 text-center purple">@ Sahara Mall,Delhi</div>
+           </div>
           </td>
           <td>
             <div style="height:150px;width:150px;border:solid 1px #72175a;">
@@ -209,6 +210,7 @@
            <div class="font12 text-center purple">2-JUL-2014</div>
            <div class="font12 text-center purple">11:00 PM</div>
            <div class="font12 text-center purple">@ Sahara Mall,Delhi</div>
+           </div>
           </td>
           <td>
             <div style="height:150px;width:150px;border:solid 1px #72175a;">
@@ -216,6 +218,7 @@
            <div class="font12 text-center purple">2-JUL-2014</div>
            <div class="font12 text-center purple">11:00 PM</div>
            <div class="font12 text-center purple">@ Sahara Mall,Delhi</div>
+           </div>
           </td>
           <td>
             <div style="height:150px;width:150px;border:solid 1px #72175a;">
@@ -223,6 +226,7 @@
            <div class="font12 text-center purple">2-JUL-2014</div>
            <div class="font12 text-center purple">11:00 PM</div>
            <div class="font12 text-center purple">@ Sahara Mall,Delhi</div>
+           </div>
           </td>
           <td>
             <div style="height:150px;width:150px;border:solid 1px #72175a;">
@@ -230,6 +234,7 @@
            <div class="font12 text-center purple">2-JUL-2014</div>
            <div class="font12 text-center purple">11:00 PM</div>
            <div class="font12 text-center purple">@ Sahara Mall,Delhi</div>
+           </div>
           </td>
           <td>
             <div style="height:150px;width:150px;border:solid 1px #72175a;">
@@ -237,6 +242,7 @@
            <div class="font12 text-center purple">2-JUL-2014</div>
            <div class="font12 text-center purple">11:00 PM</div>
            <div class="font12 text-center purple">@ Sahara Mall,Delhi</div>
+           </div>
           </td>
           <td>
             <div style="height:150px;width:150px;border:solid 1px #72175a;">
@@ -244,6 +250,7 @@
            <div class="font12 text-center purple">2-JUL-2014</div>
            <div class="font12 text-center purple">11:00 PM</div>
            <div class="font12 text-center purple">@ Sahara Mall,Delhi</div>
+           </div>
           </td>
           <td>
             <div style="height:150px;width:150px;border:solid 1px #72175a;">
@@ -251,6 +258,7 @@
            <div class="font12 text-center purple">2-JUL-2014</div>
            <div class="font12 text-center purple">11:00 PM</div>
            <div class="font12 text-center purple">@ Sahara Mall,Delhi</div>
+           </div>
           </td>
           <td>
             <div style="height:150px;width:150px;border:solid 1px #72175a;">
@@ -258,6 +266,7 @@
            <div class="font12 text-center purple">2-JUL-2014</div>
            <div class="font12 text-center purple">11:00 PM</div>
            <div class="font12 text-center purple">@ Sahara Mall,Delhi</div>
+           </div>
           </td>
           <td>
             <div style="height:150px;width:150px;border:solid 1px #72175a;">
@@ -265,6 +274,7 @@
            <div class="font12 text-center purple">2-JUL-2014</div>
            <div class="font12 text-center purple">11:00 PM</div>
            <div class="font12 text-center purple">@ Sahara Mall,Delhi</div>
+           </div>
           </td>
           <td>
             <div style="height:150px;width:150px;border:solid 1px #72175a;">
@@ -272,6 +282,7 @@
            <div class="font12 text-center purple">2-JUL-2014</div>
            <div class="font12 text-center purple">11:00 PM</div>
            <div class="font12 text-center purple">@ Sahara Mall,Delhi</div>
+           </div>
           </td>
         </tr>
       </tbody> 
