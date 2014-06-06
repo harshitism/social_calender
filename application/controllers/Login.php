@@ -28,6 +28,7 @@ class Login extends CI_Controller{
 				$data['uname_error']="Incorrect Username & Password Combination";
 				$this->load->view('startpage',$data);
 			}
+<<<<<<< HEAD
 			
 			else if($data['user_id']==-1)
 			{
@@ -37,13 +38,25 @@ class Login extends CI_Controller{
 			else
 			{
 
+=======
+			else if($data['user_id']==-1)
+			{
+				$data['uname_error']="Email verification required";
+				$this->load->view('startpage',$data);
+			}
+			else
+			{
+>>>>>>> eb0d2f6aa54222768afa97eaf831fa83f91e18c8
 				
 				$this->load->library('session');
 				$array = array('user_name' => $parameter['user_name'], 'user_id' => $data['user_id']);
 				$this->session->set_userdata($array);
 				$this->load->helper('url');
 				redirect('/Profile_currentuser');
+<<<<<<< HEAD
 
+=======
+>>>>>>> eb0d2f6aa54222768afa97eaf831fa83f91e18c8
 			}
 	}
 }

@@ -6,7 +6,7 @@ class Md_friend extends CI_Model {
 		//model constructor
 		parent::__construct();
 	}
-	//function add_friend to add friend of current user takes arguments (following_id)
+	//function add_friend to add friend of current user takes arguments (friend_id)
 	public function add_friend($friend_id)
 	{
 		$this->load->library('session');
@@ -35,7 +35,7 @@ class Md_friend extends CI_Model {
 		return 0;
 	}
 	//function del_friend to delete friend of current user takes arguments (friend_id)
-	public function del_following($friend_id)
+	public function del_friend($friend_id)
 	{
 		$this->load->library('session');
 		$user_id = $this->session->userdata('user_id');

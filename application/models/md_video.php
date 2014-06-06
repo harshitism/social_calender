@@ -4,6 +4,7 @@
 		parent::__construct();
 	}
 
+
 	/*function insert_video  gets a parameter array 
 		assuming the inputs are in order event,added_by,path
 		and video_id and date_added are assigned automatically
@@ -23,6 +24,7 @@
 		$this->db->insert('video',$data);
 		if($this->db->affected_rows() == 1){
 			//$this->load->view('tsucc');
+
 			return 1;
 		}
 		else{
@@ -30,6 +32,7 @@
 		}
 	}
 	
+
 	/*function edit_video  gets a parameter array 
 		assuming the inputs are in order video_id,event,added_by,path
 		and date_added are assigned automatically
@@ -53,6 +56,7 @@
 		$this->db->update('video',$data);
 		if($this->db->affected_rows() == 1){
 			//$this->load->view('tupsucc');
+
 			return 1;
 		}
 		else{
@@ -60,18 +64,22 @@
 		}
 	}
 	
+
 	/*
+
 	function delete_video takes video_id as argument
 		$id -> video_id of the video to be deleted
 		and deletes the row with that video_id in table video
 	*/
+
 	public function delete_video($video_id) {
 		$this->load->database();
 		$this->load->library('table');
 		$this->db->where('video_id',$video_id);
 		$this->db->delete('video');
 		if($this->db->affected_rows() ==1){
-			$this->load->view('profile');
+			//$this->load->view('twsucc');
+
 			return 1;
 		}
 		else{
@@ -82,6 +90,7 @@
 	//function show_video_table displays the video table 
 	public function show_video_table()
 	{
+
 	
 	$this->load->database();
     $this->load->library('table');
@@ -92,3 +101,4 @@
 	
 }
 ?>
+

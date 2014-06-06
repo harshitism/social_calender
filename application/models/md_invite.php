@@ -5,6 +5,7 @@ class Md_invite extends CI_Model{
 	}
 	
 	/*
+
 	function insert_invite gets a parameter array  as inputs 
 	assuming that the input is in order invited_friend,friend_id,event_id,location,invited_by 
 	it inserts these values in invite table 
@@ -24,11 +25,13 @@ class Md_invite extends CI_Model{
 		$this->db->insert('invite',$data);
 		if($this->db->affected_rows() ==1){
 		//$this->load->view('tsucc');
+
 		return 1;
 		}
 		else{
 		return 0;
 		}
+
 		
 	}
 	/*
@@ -50,7 +53,8 @@ class Md_invite extends CI_Model{
 		$this->db->where('event_id',$parameter[2]);
 		$this->db->update('invite',$data);
 		if($this->db->affected_rows() ==1){
-		//$this->load->view('profile');
+		//$this->load->view('tupsucc');
+
 		return 1;
 		}
 		else{
@@ -62,6 +66,7 @@ class Md_invite extends CI_Model{
 		function delete_invite takes event_id and friend_id as argument
 		and deletes the row with that event_id and friend_id in table invite 
 	*/
+
 	public function delete_invite($friend_id,$event_id) {
 		$this->load->database();
 		$this->load->library('table');
@@ -69,13 +74,15 @@ class Md_invite extends CI_Model{
 		$this->db->where('event_id',$event_id);
 		$this->db->delete('invite');
 		if($this->db->affected_rows() ==1){
-			$this->load->view('profile');
+			//$this->load->view('twsucc');
+
 			return 1;
 		}
 		else{
 		return 0;
 		}
 	}
+
 	/*function show_invite displays the contents of invite table in
 		a tabular form
 		*/
@@ -84,8 +91,8 @@ class Md_invite extends CI_Model{
     $this->load->database();
     $this->load->library('table');
 	$query = $this->db->query("SELECT * FROM invite");
-	echo $this->table->generate($query);
-		
+	echo $this->table->generate($query); 
 }	
 }
 ?>
+

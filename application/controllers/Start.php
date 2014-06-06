@@ -21,9 +21,9 @@ class Start extends CI_Controller {
 	{
 		$this->load->view('startpage');
 	}
-	public function forgot()
+	public function ed()
 	{
-		$this->load->view('forgot_password');
+		$this->load->view('editprofile');
 	}
 
 	public function profile()

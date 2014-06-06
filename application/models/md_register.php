@@ -1,13 +1,8 @@
 <?php
 //Model md_register validates name and email of the user whether it is according to database or not and inserts info of the user in table user.
-<<<<<<< HEAD
-class Md_register extends CI_Model 
-{
-=======
 
 class Md_register extends CI_Model {
 
->>>>>>> eb70b087e35e35c42e9233f89baa4658e04346f8
 	public function __construct()
 	{
 			//call the model constructor
@@ -36,16 +31,10 @@ class Md_register extends CI_Model {
 				$name = $info[0].$info[1].$info[2];
 				if(ctype_alpha($name))     //checks if name has only characters
 				{
-<<<<<<< HEAD
-					$hash = md5( rand(0,1000) );
-					$query = $this->db->query("INSERT INTO user (first_name,middle_name,last_name,email,dob,contact,password,gender,hash) values ('".$info[0]."','".$info[1]."','".$info[2]."','".$info[3]."','".$info[4]."','".$info[5]."','".$info[6]."','".$info[7]."','".$hash."')");
-					if($this->db->affected_rows() == 1)
-=======
 
 					$hash = md5( rand(0,1000) );
 					$query = $this->db->query("INSERT INTO user (first_name,middle_name,last_name,email,dob,contact,password,gender,hash) VALUES ('".$info[0]."','".$info[1]."','".$info[2]."','".$info[3]."','".$info[4]."','".$info[5]."','".$info[6]."','".$info[7]."','".$hash."')");
 					if($this->db->affected_rows() >= 1)
->>>>>>> eb70b087e35e35c42e9233f89baa4658e04346f8
 					{
 					$message = " To activate your account, please click on this link:\n\n";
 					$message = '
@@ -59,11 +48,7 @@ class Md_register extends CI_Model {
 					------------------------
  
 					Please click this link to activate your account:
-<<<<<<< HEAD
-					http://localhost/social_startup/index.php/verification/index/'.$hash.'';
-=======
 					'.$this->config->base_url().'index.php/verification/index/'.$hash.'';
->>>>>>> eb70b087e35e35c42e9233f89baa4658e04346f8
 	               
 	                mail($info[3], 'Registration Confirmation', $message, "From:social_calender");
 					return 1;			//return 1 if info is inserted
@@ -82,11 +67,6 @@ class Md_register extends CI_Model {
 			return 5;
 			
 		}
-<<<<<<< HEAD
-		else
-		{
-			foreach( $exist->result() as $row)
-=======
 		else if($phone_exist->num_rows() > 0)
 		{
 			return 6;
@@ -95,7 +75,6 @@ class Md_register extends CI_Model {
 			
 			/*
 			foreach( $email_exist->result() as $row)
->>>>>>> eb70b087e35e35c42e9233f89baa4658e04346f8
 			{
 			if($row->verify=='1/1/1')
 			{
@@ -128,12 +107,6 @@ class Md_register extends CI_Model {
 					return 0;
 					}
 			}
-<<<<<<< HEAD
-		}
-	}
-}
-}
-=======
 			
 			
 		}*/
@@ -141,5 +114,4 @@ class Md_register extends CI_Model {
 	}
 }
 
->>>>>>> eb70b087e35e35c42e9233f89baa4658e04346f8
 ?>
