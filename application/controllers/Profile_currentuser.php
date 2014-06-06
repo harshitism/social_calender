@@ -5,7 +5,12 @@ class Profile_currentuser extends CI_Controller {
 		$user_id = $this->session->userdata('user_id');
 		$data['user_id'] = $user_id;
 		$this->load->model('Md_profile');
-		$data['name'] = $this->Md_profile->get_name($user_id);
+		$name = $this->Md_profile->get_info($user_id);
+		$data['name'] = $name['first_name'];
+		if($name['middle_name']!="")
+		$data['name'] = $data['name']." ".$name['middle_name'];
+		if($name['last_name']!="")
+		$data['name'] = $data['name']." ".$name['last_name'];
 		$data['profilepic'] = $this->Md_profile->get_profilepic($user_id);
 		$this->load->model('Md_event');
 		$even = $this->Md_event->get_event($user_id);

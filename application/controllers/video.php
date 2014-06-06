@@ -19,7 +19,6 @@ class Video extends CI_Controller{
 				
 				$this->load->model('Md_video');
 				$this->Md_video->insert_video($parameter);		
-				//$this->load->view('profile');
 		}
 		/*function edit gets parameters separated by / as inputs in the url 
 		assuming the inputs are in order video_id,event,added_by,path
@@ -52,14 +51,12 @@ class Video extends CI_Controller{
 		a tabular form
 		*/
 		public function show(){
-			$this->load->database();
+		$this->load->database();
 			$this->load->helper(array('form', 'url'));
-			
+
 			$this->load->library('form_validation');	
-			echo "<br><br><br>";
 			$this->load->model('Md_video');
 			$this->Md_video->show_video_table();
-			$this->load->view('profile');
 		}
 }
 ?>

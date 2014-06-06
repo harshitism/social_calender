@@ -25,10 +25,7 @@ class Register extends CI_Controller{
 		$this->form_validation->set_rules('dob', 'Date of Birth', 'required|valid_date[dd-mm-yyyy,/]');
 		$this->form_validation->set_rules('contact', 'Contact', 'required|min_length[10]|max_length[10]|numeric');
 		$this->form_validation->set_rules('password', 'Password', 'required|min_length[5]|max_length[20]|');
-<<<<<<< HEAD
-=======
 		//$this->form_validation->set_rules('gender', 'Gender', 'required|min_length[4]|max_length[10]|!numeric');
->>>>>>> eb70b087e35e35c42e9233f89baa4658e04346f8
 		
 		if ($this->form_validation->run() == FALSE)
 		{
@@ -39,17 +36,6 @@ class Register extends CI_Controller{
 		{
 			$param = implode(",",$parameter);
 			$this->load->model('Md_register');	
-<<<<<<< HEAD
-			if($this->Md_register->md_register($param))
-			{
-				$data['succ'] = "successfully registered";
-				$this->load->view('done1',$data);
-			}
-			else
-			{
-				$data['succ'] = "error";
-				$this->load->view('done1',$data);
-=======
 			$status=$this->Md_register->register($param);
 			if($status==1)
 			{
@@ -87,7 +73,6 @@ class Register extends CI_Controller{
 			{
 				$data['uname_error']="Mobile Number already Exists";
 				$this->load->view('startpage',$data);
->>>>>>> eb70b087e35e35c42e9233f89baa4658e04346f8
 			}
 		}
 	}

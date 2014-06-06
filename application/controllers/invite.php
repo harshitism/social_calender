@@ -16,9 +16,9 @@ class Invite extends CI_Controller{
 				
 				$parameter=array($invited_friend,$friend_id,$event_id,$location,$invited_by );
 				
-				
 				$this->load->model('Md_invite');
 				$this->Md_invite->insert_invite($parameter);
+				
 				
 		}
 		/*function edit gets parameters separated by / as inputs in the url 
@@ -46,10 +46,9 @@ class Invite extends CI_Controller{
 			$this->load->helper(array('form', 'url'));
 
 			$this->load->library('form_validation');	
-			
 			$this->load->model('Md_invite');
 			$this->Md_invite->delete_invite($event_id,$friend_id);
-			
+		
 		}
 		/*function show displays the contents of invite table in
 		a tabular form
@@ -57,12 +56,10 @@ class Invite extends CI_Controller{
 		public function show(){
 		$this->load->database();
 			$this->load->helper(array('form', 'url'));
-	
-			$this->load->library('form_validation');
-			echo "<br><br><br>";
+
+			$this->load->library('form_validation');	
 			$this->load->model('Md_invite');
 			$this->Md_invite->show_invite();
-			$this->load->view('profile');
 		}
 		
 }
