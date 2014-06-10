@@ -12,10 +12,6 @@ class Md_login extends CI_Model {
 	{
 		
 		$this->load->database();
-<<<<<<< HEAD
-=======
-
->>>>>>> eb70b087e35e35c42e9233f89baa4658e04346f8
 		$query = $this->db->query("SELECT user_id,verify from user where (email = '".$uname."' and password = '".$password."') or (contact = '".$uname."' and password = '".$password."')");
 		foreach( $query->result() as $row)
 		{
@@ -23,11 +19,7 @@ class Md_login extends CI_Model {
 			return $row->user_id;
 			else
 			return -1;
-<<<<<<< HEAD
-=======
-
->>>>>>> eb70b087e35e35c42e9233f89baa4658e04346f8
-		}
+			}
 		return 0;
 	}
 }
