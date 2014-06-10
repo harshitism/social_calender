@@ -44,7 +44,7 @@ class Register extends CI_Controller{
 				if($parameter['gender']=="Male")
 				$default = "male.png";
 				else
-				$default = "Female.png";
+				$default = "female.png";
 				$this->load->model('Md_profilepic');
 				$this->Md_profilepic->add_profilepic($user_id,$default);
 				$this->load->view('startpage');

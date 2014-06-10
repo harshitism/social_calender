@@ -100,6 +100,15 @@
                     </a>
                 </li>
                 <li class="">
+                    <a href="#interest" data-toggle="pill">
+                    <div>
+                    <span class="glyphicon glyphicon-pencil" style="margin-left:35px;"></span>
+                    <br/>
+                    My Interests
+                    </div>
+                    </a>
+                </li>
+                <li class="">
                     <a href="#work" data-toggle="pill">
                     <div>
                     <span class="glyphicon glyphicon-briefcase" style="margin-left:50px;"></span>
@@ -131,13 +140,12 @@
           <!-- End of Nav Pills -->
           <div class="panel-body">
            <div class="tab-content panel-body">
-              <div class="tab-pane active in" id="basicinfo">
+              
+              <div class="tab-pane fade active in" id="basicinfo">
                     <div class="col-md-8 ">
                      <h3>Basic Information</h3>
-                     <?php
-					 if(isset($error))
-			 echo $error."<br><br>";
-			 ?>
+                     <?php if(isset($error))
+					echo $error."<br><br>";?>
                     <form class="form-horizontal" action="<?php echo $this->config->base_url();?>index.php/update_userdetails/basicinfo" method="post" role="form" >
                           
                           <div class="form-group">
@@ -245,15 +253,77 @@
               </div>
               
               <!-- End of Basic Info -->
+              <div class="tab-pane fade "  id="interest">
+              	<div class="col-md-8">
+              		<h3>Personal interests</h3>
+              			<form class="form-horizontal" role="form" >
+                          
+                          	<div class="form-group">
+                            	<label for="personal_web_page" class="col-sm-3 control-label">Personal web page:</label>
+                            	<div class="col-sm-6">
+                              	<textarea class="form-control" id="personal_web_page" placeholder="" value=""></textarea>
+                            	</div>
+                          </div>
 
-           <div class="tab-pane fade panel-body" id="work">
+                          <div class="form-group">
+                            	<label for="nickname" class="col-sm-3 control-label">Loved one's call me:</label>
+                            	<div class="col-sm-6">
+                              	<textarea class="form-control" id="nickname" placeholder="" value=""></textarea>
+                            	</div>
+                          </div>	
+
+                          <div class="form-group">
+                            	<label for="hobby" class="col-sm-3 control-label" >My Hobbies:</label>
+                            	<div class="col-sm-6">
+                              	<textarea class="form-control" id="hobby" placeholder="" value=""></textarea>
+                            	</div>
+                          </div>	
+                          <h3>Activities</h3>
+                          <div class="form-group">
+                            	<label for="music" class="col-sm-3 control-label" >My Favourite Songs:</label>
+                            	<div class="col-sm-6">
+                              	<textarea class="form-control" id="music" placeholder="" value=""></textarea>
+                            	</div>
+                          </div>	
+	
+                         <div class="form-group">
+                            	<label for="tvseries" class="col-sm-3 control-label" >TV Series I like:</label>
+                            	<div class="col-sm-6">
+                              	<textarea class="form-control" id="tvseries" placeholder="" value=""></textarea>
+                            	</div>
+                          </div>	
+
+                          <div class="form-group">
+                            	<label for="movies" class="col-sm-3 control-label" >My Favourite Movies:</label>
+                            	<div class="col-sm-6">
+                              	<textarea class="form-control" id="movies" placeholder="" value=""></textarea>
+                            	</div>
+                          </div>
+
+                          <div class="form-group">
+                            	<label for="sports" class="col-sm-3 control-label" >Sports I like:</label>
+                            	<div class="col-sm-6">
+                              	<textarea class="form-control" id="sports" placeholder="" value=""></textarea>
+                            	</div>
+                          </div>
+
+                          <br />
+                          <hr />
+
+                           <div class="pull-right">
+                              <div class="form-group">
+                                  <button type="submit" class="btn btn-primary" style="margin-right:15px">Save</button>      
+                              </div>
+                          </div>
+                       </form>
+              	</div>
+             </div>
+ 			<!-- End of interests -->
+
+              <div class="tab-pane fade" id="work">
                     
                     <div class="col-md-8 ">
                        <h3>Education</h3>
-                       <?php
-					   if(isset($error))
-				    	 echo $error."<br><br>";
-						 ?>
                         <form class="form-horizontal" action="<?php echo $this->config->base_url();?>index.php/update_userdetails/education_work" method="post" role="form">
                           
                           <div class="form-group">
@@ -319,10 +389,8 @@
                 </div>
 
               <!-- End of Work & Education -->
-            <div class="tab-pane fade panel-body" id="profile" style="height:400px">
+              <div class="tab-pane fade" id="profile" style="height:400px">
 			<?php $this->load->helper('form');
-			 if(isset($error))
-			 echo $error."<br><br>";
              echo form_open_multipart(''.$this->config->base_url().'index.php/update_userdetails/profilepic');
                   
                 echo "<div class='col-md-4' style='margin-top:40px;margin-left:100px'>";
@@ -340,18 +408,15 @@
                         </div>
                     </div>
                     <div class='col-md-5 pull-right' style='margin-top:30px;'>
-                    <img src='../assets/uploads/profilepics/".$profilepic."' width='262px' height='207px' alt='Status Owner'>
+                    <img src='../assets/uploads/profilepics/".$profilepic."' alt=''>
                     </div>";
 			  ?>
               </div>
               <!-- End of Profile Photo Change -->
-				<div class="tab-pane fade panel-body" id="location">
+
+              <div class="tab-pane fade" id="location">
                   <div class="col-md-8 ">
                        <h3>Home Town</h3>
-                       <?php
-					   if(isset($error))
-			 echo $error."<br><br>";
-			 ?>
                         <form class="form-horizontal" action="<?php echo $this->config->base_url();?>index.php/update_userdetails/address" method="post" role="form">
                           
                           <div class="form-group">
@@ -411,7 +476,6 @@
                        </form>
                     </div>
                 </div>
-             
                </div>
             </div>
           </div>

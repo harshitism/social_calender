@@ -14,8 +14,9 @@ class Md_profile extends CI_Model {
 		$info['first_name'] = $row->first_name;
 		$info['middle_name'] = $row->middle_name;
 		$info['last_name'] = $row->last_name;
-		$info['contact'] = $row->contact;
+		$info['email'] = $row->email;
 		$info['dob'] = $row->dob;
+		$info['contact'] = $row->contact;
 		$info['gender'] = $row->gender;
 		return $info;
 		}

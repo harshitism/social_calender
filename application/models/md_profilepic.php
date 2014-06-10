@@ -28,7 +28,7 @@ class Md_profilepic extends CI_Model {
 		{
 			$path = "assets/uploads/profilepics/".$nrow->pic_name;
 		}
-		if($nrow->pic_name!="Male.png"&&$nrow->pic_name!="Female.png")
+		if($nrow->pic_name!="male.png"&&$nrow->pic_name!="female.png")
 		unlink($path);
 		$this->db->where('user_id',$user_id);
 		$this->db->update('profile_pic',$arr);
