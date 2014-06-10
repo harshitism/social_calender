@@ -33,11 +33,6 @@ class Login extends CI_Controller{
 				$data['uname_error']="Email verification required";
 				$this->load->view('startpage',$data);
 			}
-			else if($data['user_id']==-1)
-			{
-				$data['uname_error']="Email verification required";
-				$this->load->view('login',$data);
-			}
 			else
 			{
 				$this->load->view('done',$data);

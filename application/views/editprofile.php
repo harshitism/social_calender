@@ -12,6 +12,10 @@
     <link href="./assets/css/bootstrap.css" rel="stylesheet" >
      <link href="./assets/css/custom.css" rel="stylesheet" >
     
+    
+    <link href="<?php echo $this->config->base_url();?>assets/css/bootstrap.css" rel="stylesheet" >
+    <link href="<?php echo $this->config->base_url();?>assets/css/bootstrap.min.css" rel="stylesheet" >
+
     <style type="text/css">
     
     a:hover,a:focus,a:active{
@@ -62,7 +66,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Profile Person</a>            
+                <a class="navbar-brand" href="#"><?php echo $full_name;?></a>            
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -96,6 +100,15 @@
                     </a>
                 </li>
                 <li class="">
+                    <a href="#interest" data-toggle="pill">
+                    <div>
+                    <span class="glyphicon glyphicon-pencil" style="margin-left:35px;"></span>
+                    <br/>
+                    My Interests
+                    </div>
+                    </a>
+                </li>
+                <li class="">
                     <a href="#work" data-toggle="pill">
                     <div>
                     <span class="glyphicon glyphicon-briefcase" style="margin-left:50px;"></span>
@@ -125,33 +138,34 @@
             </ul>         
           </div>
           <!-- End of Nav Pills -->
-
           <div class="panel-body">
-            <div class="tab-content">
+           <div class="tab-content panel-body">
               
-              <div class="tab-pane active in" id="basicinfo">
+              <div class="tab-pane fade active in" id="basicinfo">
                     <div class="col-md-8 ">
                      <h3>Basic Information</h3>
-                    <form class="form-horizontal" role="form" >
+                     <?php if(isset($error))
+					echo $error."<br><br>";?>
+                    <form class="form-horizontal" action="<?php echo $this->config->base_url();?>index.php/update_userdetails/basicinfo" method="post" role="form" >
                           
                           <div class="form-group">
                             <label for="firstname" class="col-sm-3 control-label">First Name:</label>
                             <div class="col-sm-6">
-                              <input type="text" class="form-control" id="firstname" placeholder="First Name" value="">
+                              <input type="text" class="form-control" name="first_name" placeholder="First Name" value="<?php echo $first_name;?>">
                             </div>
                           </div>
 
                           <div class="form-group">
                             <label for="middlename" class="col-sm-3 control-label" >Middle Name:</label>
                             <div class="col-sm-6">
-                              <input type="text" class="form-control" id="middlename" placeholder="Middle Name" value="">
+                              <input type="text" class="form-control" name="middle_name" placeholder="Middle Name" value="<?php echo $middle_name;?>">
                             </div>
                           </div>
 
                           <div class="form-group">
                             <label for="lastname" class="col-sm-3 control-label">Last Name:</label>
                             <div class="col-sm-6">
-                              <input type="text" class="form-control" id="lastname" placeholder="Last Name" value="">
+                              <input type="text" class="form-control" name="last_name" placeholder="Last Name" value="<?php echo $last_name;?>">
                             </div>
                           </div>
 
@@ -159,21 +173,21 @@
                           <div class="form-group">
                             <label for="useremail" class="col-sm-3 control-label">Email:</label>
                             <div class="col-sm-6">
-                              <input type="email" class="form-control" id="useremail" placeholder="Email" value="">
+                              <input type="email" class="form-control" name="email" placeholder="Email" value="<?php echo $email;?>">
                             </div>
                           </div>
                           
                           <div class="form-group">
                             <label for="contactno" class="col-sm-3 control-label">Contact No:</label>
                             <div class="col-sm-6">
-                              <input type="text" class="form-control" id="contactno" placeholder="Contact No." value="">
+                              <input type="text" class="form-control" name="contact" placeholder="Contact No." value="<?php echo $contact?>">
                             </div>
                           </div>
 
                           <div class="form-group">
                             <label for="birthdate" class="col-sm-3 control-label">Birthday:</label>
                             <div class="col-sm-6">
-                              <input type="text" class="form-control" id="birthdate" placeholder="Birthday" value="">
+                              <input type="text" class="form-control" name="dob" placeholder="Birthday" value="<?php echo $dob;?>">
                             </div>
                           </div>
                         
@@ -182,9 +196,18 @@
                               <div class="col-sm-5">
                                <div class="input-group">
                                   <span class="input-group-addon">I'm</span>
-                                    <select id="gender" class="form-control ">
-                                        <option>Male</option>
-                                        <option>Female</option>
+                                    <select name="gender" class="form-control ">
+                                    <?php if($gender=="Male")
+									{
+                                       echo "<option value='Male'>Male</option>";
+                                       echo "<option value='Female'>Female</option>";
+									}
+									   else
+									   {
+									   echo "<option value='Female'>Female</option>";
+                                       echo "<option value='Male'>Male</option>";
+									   }
+									   ?>
                                     </select>
                               </div>
                              </div>
@@ -204,14 +227,14 @@
                                    <div class="form-group">
                                          <label for="changepassword" class="col-sm-3 ">Change Password:</label>
                                          <div class="col-sm-6">
-                                         <input type="password" class="form-control" id="changepassword" placeholder="Enter a new Password">
+                                         <input type="password" class="form-control" name="new_password" placeholder="Enter a new Password">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                        <label for="retypepassword" class="col-sm-3 ">Retype Password:</label>
                                        <div class="col-sm-6">
-                                       <input type="password" class="form-control" id="retypepassword" placeholder="Retype Password">
+                                       <input type="password" class="form-control" name="confirm_new_password" placeholder="Retype Password">
                                     </div>
                                     </div>
                                   </div>
@@ -230,31 +253,97 @@
               </div>
               
               <!-- End of Basic Info -->
+              <div class="tab-pane fade "  id="interest">
+              	<div class="col-md-8">
+              		<h3>Personal interests</h3>
+              			<form class="form-horizontal" role="form" >
+                          
+                          	<div class="form-group">
+                            	<label for="personal_web_page" class="col-sm-3 control-label">Personal web page:</label>
+                            	<div class="col-sm-6">
+                              	<textarea class="form-control" id="personal_web_page" placeholder="" value=""></textarea>
+                            	</div>
+                          </div>
+
+                          <div class="form-group">
+                            	<label for="nickname" class="col-sm-3 control-label">Loved one's call me:</label>
+                            	<div class="col-sm-6">
+                              	<textarea class="form-control" id="nickname" placeholder="" value=""></textarea>
+                            	</div>
+                          </div>	
+
+                          <div class="form-group">
+                            	<label for="hobby" class="col-sm-3 control-label" >My Hobbies:</label>
+                            	<div class="col-sm-6">
+                              	<textarea class="form-control" id="hobby" placeholder="" value=""></textarea>
+                            	</div>
+                          </div>	
+                          <h3>Activities</h3>
+                          <div class="form-group">
+                            	<label for="music" class="col-sm-3 control-label" >My Favourite Songs:</label>
+                            	<div class="col-sm-6">
+                              	<textarea class="form-control" id="music" placeholder="" value=""></textarea>
+                            	</div>
+                          </div>	
+	
+                         <div class="form-group">
+                            	<label for="tvseries" class="col-sm-3 control-label" >TV Series I like:</label>
+                            	<div class="col-sm-6">
+                              	<textarea class="form-control" id="tvseries" placeholder="" value=""></textarea>
+                            	</div>
+                          </div>	
+
+                          <div class="form-group">
+                            	<label for="movies" class="col-sm-3 control-label" >My Favourite Movies:</label>
+                            	<div class="col-sm-6">
+                              	<textarea class="form-control" id="movies" placeholder="" value=""></textarea>
+                            	</div>
+                          </div>
+
+                          <div class="form-group">
+                            	<label for="sports" class="col-sm-3 control-label" >Sports I like:</label>
+                            	<div class="col-sm-6">
+                              	<textarea class="form-control" id="sports" placeholder="" value=""></textarea>
+                            	</div>
+                          </div>
+
+                          <br />
+                          <hr />
+
+                           <div class="pull-right">
+                              <div class="form-group">
+                                  <button type="submit" class="btn btn-primary" style="margin-right:15px">Save</button>      
+                              </div>
+                          </div>
+                       </form>
+              	</div>
+             </div>
+ 			<!-- End of interests -->
 
               <div class="tab-pane fade" id="work">
                     
                     <div class="col-md-8 ">
                        <h3>Education</h3>
-                        <form class="form-horizontal" role="form">
+                        <form class="form-horizontal" action="<?php echo $this->config->base_url();?>index.php/update_userdetails/education_work" method="post" role="form">
                           
                           <div class="form-group">
                             <label for="school" class="col-sm-3 control-label">School:</label>
                             <div class="col-sm-6">
-                              <input type="text" class="form-control" id="school" placeholder="School Name" value="">
+                              <input type="text" class="form-control" name="school" placeholder="School Name" value="<?php echo $school;?>">
                             </div>
                           </div>
 
                            <div class="form-group">
                             <label for="college" class="col-sm-3 control-label">College:</label>
                             <div class="col-sm-6">
-                              <input type="text" class="form-control" id="college" placeholder="College Name" value="">
+                              <input type="text" class="form-control" name="college" placeholder="College Name" value="<?php echo $college;?>">
                             </div>
                           </div> 
 
                           <div class="form-group">
                             <label for="university" class="col-sm-3 control-label">University:</label>
                             <div class="col-sm-6">
-                              <input type="text" class="form-control" id="university" placeholder="University Name" value="">
+                              <input type="text" class="form-control" name="university" placeholder="University Name" value="<?php echo $university;?>">
                             </div>
                           </div>
 
@@ -262,28 +351,28 @@
                             <div class="form-group">
                             <label for="occupation" class="col-sm-3 control-label">Occupation:</label>
                             <div class="col-sm-6">
-                              <input type="text" class="form-control" id="occupation" placeholder="Occupation" value="">
+                              <input type="text" class="form-control" name="occupation" placeholder="Occupation" value="<?php echo $occupation;?>">
                             </div>
                           </div>
 
                           <div class="form-group">
                             <label for="company" class="col-sm-3 control-label">Company:</label>
                             <div class="col-sm-6">
-                              <input type="text" class="form-control" id="company" placeholder="Company Name" value="">
+                              <input type="text" class="form-control" name="company" placeholder="Company Name" value="<?php echo $company;?>">
                             </div>
                           </div>
 
                           <div class="form-group">
                             <label for="designation" class="col-sm-3 control-label">Job Designation:</label>
                             <div class="col-sm-6">
-                              <input type="text" class="form-control" id="designation" placeholder="Job Designation" value="">
+                              <input type="text" class="form-control" name="job_designation" placeholder="Job Designation" value="<?php echo $job_designation;?>">
                             </div>
                           </div>
 
                           <div class="form-group">
                             <label for="workemail" class="col-sm-3 control-label">Work Email:</label>
                             <div class="col-sm-6">
-                              <input type="email" class="form-control" id="workemail" placeholder="Work Email" value="">
+                              <input type="email" class="form-control" name="work_email" placeholder="Work Email" value="<?php echo $work_email;?>">
                             </div>
                           </div>
                           <br />
@@ -300,52 +389,54 @@
                 </div>
 
               <!-- End of Work & Education -->
-
               <div class="tab-pane fade" id="profile" style="height:400px">
+			<?php $this->load->helper('form');
+             echo form_open_multipart(''.$this->config->base_url().'index.php/update_userdetails/profilepic');
                   
-                  <div class="col-md-4" style="margin-top:40px;margin-left:100px">
-                    <div>
+                echo "<div class='col-md-4' style='margin-top:40px;margin-left:100px'>";
+                  echo "<div>
                         <p><strong>File Formats</strong> : jpeg, jpg, gif, png, bmp</p>
                         <p>Select an image file on your computer <strong>(20 MB Max)</strong></p>
-                    </div>
+                    </div>";
 
-                        <div class="form-group" style="margin-top:30px">
-                            <input type="file" id="imageupload">
+                        echo "<div class='form-group' style='margin-top:30px'>
+                            <input type='file' name='pic'>
                         </div>
 
-                         <div class="form-group">
-                           <button type="submit" class="btn btn-warning" style="margin-left:45px;margin-top:10px;">Upload</button>      
+                         <div class='form-group'>
+                           <button type='submit' class='btn btn-warning' style='margin-left:45px;margin-top:10px;'>Upload</button>      
                         </div>
                     </div>
-                    <div class="col-md-5 pull-right" style="margin-top:30px;">
-                    <img src="./img/default-user.jpg" alt="">
-                    </div>
+                    <div class='col-md-5 pull-right' style='margin-top:30px;'>
+                    <img src='../assets/uploads/profilepics/".$profilepic."' alt=''>
+                    </div>";
+			  ?>
               </div>
               <!-- End of Profile Photo Change -->
 
               <div class="tab-pane fade" id="location">
                   <div class="col-md-8 ">
                        <h3>Home Town</h3>
-                        <form class="form-horizontal" role="form">
+                        <form class="form-horizontal" action="<?php echo $this->config->base_url();?>index.php/update_userdetails/address" method="post" role="form">
                           
                           <div class="form-group">
                             <label for="homestate" class="col-sm-3 control-label">State:</label>
                             <div class="col-sm-6">
-                              <input type="text" class="form-control" id="homestate" placeholder="State" value="">
+                              <input type="text" class="form-control" name="home_state" placeholder="State" value="<?php echo $home_state;?>">
                             </div>
                           </div>
 
                           <div class="form-group">
                             <label for="homecity" class="col-sm-3 control-label">City:</label>
                             <div class="col-sm-6">
-                              <input type="text" class="form-control" id="homecity" placeholder="City" value="">
+                              <input type="text" class="form-control" name="home_city" placeholder="City" value="<?php echo $home_city;?>">
                             </div>
                           </div>
 
                           <div class="form-group">
                             <label for="homepincode" class="col-sm-3 control-label">Pin Code:</label>
                             <div class="col-sm-6">
-                              <input type="text" class="form-control" id="homepincode" placeholder="Pin Code" value="">
+                              <input type="text" class="form-control" name="home_pincode" placeholder="Pin Code" value="<?php echo $home_pincode;?>">
                             </div>
                           </div>
 
@@ -355,21 +446,21 @@
                           <div class="form-group">
                             <label for="currentstate" class="col-sm-3 control-label">Current State:</label>
                             <div class="col-sm-6">
-                              <input type="text" class="form-control" id="currentstate" placeholder="State" value="">
+                              <input type="text" class="form-control" name="cur_state" placeholder="State" value="<?php echo $cur_state;?>">
                             </div>
                           </div>
 
                           <div class="form-group">
                             <label for="currentcity" class="col-sm-3 control-label">Current City:</label>
                             <div class="col-sm-6">
-                              <input type="text" class="form-control" id="currentcity" placeholder="City" value="">
+                              <input type="text" class="form-control" name="cur_city" placeholder="City" value="<?php echo $cur_city;?>">
                             </div>
                           </div>
 
                           <div class="form-group">
                             <label for="currentpincode" class="col-sm-3 control-label">Pin Code:</label>
                             <div class="col-sm-6">
-                              <input type="text" class="form-control" id="currentpincode" placeholder="Pin Code" value="">
+                              <input type="text" class="form-control" name="cur_pincode" placeholder="Pin Code" value="<?php echo $cur_pincode;?>">
                             </div>
                           </div>
 

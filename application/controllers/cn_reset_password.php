@@ -5,7 +5,6 @@
 		{
 			parent::__construct();
 		}
-	
 	function index($hash)
 	{
 		//$this->load->helper(array('form', 'url'));
@@ -24,10 +23,8 @@
 		);
 		
 		$data['hash']=$hash;
-		$exist = $this->db->query("SELECT * FROM user WHERE hash = '".$hash."'");
-		if($exist->num_rows()==0)
-		$this->load->view('Link_expired');
-		else if($this->form_validation->run()==FALSE)
+		
+		if($this->form_validation->run()==FALSE)
 		{
 		$this->load->view('reset_password',$data);
 		}
