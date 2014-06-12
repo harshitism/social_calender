@@ -63,6 +63,13 @@ class Md_profile extends CI_Model {
 			$details['cur_state'] = $row->cur_state;
 			$details['cur_city'] = $row->cur_city;
 			$details['cur_pincode'] = $row->cur_pincode;
+			$details['personal_webpage'] = $row->personal_webpage;
+			$details['nickname'] = $row->nickname;
+			$details['hobbies'] = $row->hobbies;
+			$details['fav_songs'] = $row->fav_songs;
+			$details['fav_tv_series'] = $row->fav_tv_series;
+			$details['fav_movies'] = $row->fav_movies;
+			$details['fav_sports'] = $row->fav_sports;
 			return $details;
 			}
 		}

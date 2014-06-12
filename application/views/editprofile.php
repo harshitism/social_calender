@@ -6,16 +6,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Edit Profile</title>
+    <title>User Profile</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="./assets/css/bootstrap.css" rel="stylesheet" >
-     <link href="./assets/css/custom.css" rel="stylesheet" >
+    <link href="<?php echo $this->config->base_url();?>assets/css/bootstrap.css" rel="stylesheet">
+     <link href="<?php echo $this->config->base_url();?>assets/css/bootstrap.min.css" rel="stylesheet" >
+     <link href="<?php echo $this->config->base_url();?>assets/css/custom.css" rel="stylesheet">
     
-    
-    <link href="<?php echo $this->config->base_url();?>assets/css/bootstrap.css" rel="stylesheet" >
-    <link href="<?php echo $this->config->base_url();?>assets/css/bootstrap.min.css" rel="stylesheet" >
-
     <style type="text/css">
     
     a:hover,a:focus,a:active{
@@ -39,6 +36,7 @@
         padding-bottom:10px;
         margin-bottom:30px;
         margin-top:30px;
+        width: 980px;
     }
     
 
@@ -66,7 +64,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"><?php echo $full_name;?></a>            
+                <a class="navbar-brand" href="#">Profile Person</a>            
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -99,7 +97,7 @@
                     </div>
                     </a>
                 </li>
-                <li class="">
+				<li class="">
                     <a href="#interest" data-toggle="pill">
                     <div>
                     <span class="glyphicon glyphicon-pencil" style="margin-left:35px;"></span>
@@ -139,13 +137,14 @@
           </div>
           <!-- End of Nav Pills -->
           <div class="panel-body">
-           <div class="tab-content panel-body">
-              
+           <div class="tab-content">
               <div class="tab-pane fade active in" id="basicinfo">
                     <div class="col-md-8 ">
                      <h3>Basic Information</h3>
-                     <?php if(isset($error))
-					echo $error."<br><br>";?>
+                     <?php
+					 if(isset($error))
+			 echo $error."<br><br>";
+			 ?>
                     <form class="form-horizontal" action="<?php echo $this->config->base_url();?>index.php/update_userdetails/basicinfo" method="post" role="form" >
                           
                           <div class="form-group">
@@ -197,15 +196,15 @@
                                <div class="input-group">
                                   <span class="input-group-addon">I'm</span>
                                     <select name="gender" class="form-control ">
-                                    <?php if($gender=="Male")
+                                    <?php if($gender=="Female")
 									{
+                                      echo "<option value='Female'>Female</option>";
                                        echo "<option value='Male'>Male</option>";
-                                       echo "<option value='Female'>Female</option>";
 									}
 									   else
 									   {
-									   echo "<option value='Female'>Female</option>";
-                                       echo "<option value='Male'>Male</option>";
+									    echo "<option value='Male'>Male</option>";
+                                       echo "<option value='Female'>Female</option>";
 									   }
 									   ?>
                                     </select>
@@ -253,57 +252,61 @@
               </div>
               
               <!-- End of Basic Info -->
-              <div class="tab-pane fade "  id="interest">
+              <div class="tab-pane fade"  id="interest">
               	<div class="col-md-8">
               		<h3>Personal interests</h3>
-              			<form class="form-horizontal" role="form" >
+                    <?php
+					 if(isset($error))
+			 echo $error."<br><br>";
+			 ?>
+              			<form class="form-horizontal" action="<?php echo $this->config->base_url();?>index.php/update_userdetails/interests" method="post" role="form" >
                           
                           	<div class="form-group">
                             	<label for="personal_web_page" class="col-sm-3 control-label">Personal web page:</label>
                             	<div class="col-sm-6">
-                              	<textarea class="form-control" id="personal_web_page" placeholder="" value=""></textarea>
+                              	<textarea class="form-control" name="personal_webpage" placeholder="Personal Webpage"><?php echo $personal_webpage;?></textarea>
                             	</div>
                           </div>
 
                           <div class="form-group">
                             	<label for="nickname" class="col-sm-3 control-label">Loved one's call me:</label>
                             	<div class="col-sm-6">
-                              	<textarea class="form-control" id="nickname" placeholder="" value=""></textarea>
+                              	<textarea class="form-control" name="nickname" placeholder="Nickname"><?php echo $nickname;?></textarea>
                             	</div>
                           </div>	
 
                           <div class="form-group">
                             	<label for="hobby" class="col-sm-3 control-label" >My Hobbies:</label>
                             	<div class="col-sm-6">
-                              	<textarea class="form-control" id="hobby" placeholder="" value=""></textarea>
+                              	<textarea class="form-control" name="hobbies" placeholder="Hobbies"><?php echo $hobbies;?></textarea>
                             	</div>
                           </div>	
                           <h3>Activities</h3>
                           <div class="form-group">
                             	<label for="music" class="col-sm-3 control-label" >My Favourite Songs:</label>
                             	<div class="col-sm-6">
-                              	<textarea class="form-control" id="music" placeholder="" value=""></textarea>
+                              	<textarea class="form-control" name="fav_songs" placeholder="Favourite Songs"><?php echo $fav_songs;?></textarea>
                             	</div>
                           </div>	
 	
                          <div class="form-group">
                             	<label for="tvseries" class="col-sm-3 control-label" >TV Series I like:</label>
                             	<div class="col-sm-6">
-                              	<textarea class="form-control" id="tvseries" placeholder="" value=""></textarea>
+                              	<textarea class="form-control" name="fav_tv_series" placeholder="Favourite TV Series"><?php echo $fav_tv_series;?></textarea>
                             	</div>
                           </div>	
 
                           <div class="form-group">
                             	<label for="movies" class="col-sm-3 control-label" >My Favourite Movies:</label>
                             	<div class="col-sm-6">
-                              	<textarea class="form-control" id="movies" placeholder="" value=""></textarea>
+                              	<textarea class="form-control" name="fav_movies" placeholder="Favourite Movies"><?php echo $fav_movies;?></textarea>
                             	</div>
                           </div>
 
                           <div class="form-group">
                             	<label for="sports" class="col-sm-3 control-label" >Sports I like:</label>
                             	<div class="col-sm-6">
-                              	<textarea class="form-control" id="sports" placeholder="" value=""></textarea>
+                              	<textarea class="form-control" id="fav_sports" placeholder="Favourite Sports"><?php echo $fav_sports;?></textarea>
                             	</div>
                           </div>
 
@@ -318,12 +321,16 @@
                        </form>
               	</div>
              </div>
- 			<!-- End of interests -->
+             <!-- End of my interest -->
 
-              <div class="tab-pane fade" id="work">
+           <div class="tab-pane fade" id="work">
                     
                     <div class="col-md-8 ">
                        <h3>Education</h3>
+                       <?php
+					   if(isset($error))
+				    	 echo $error."<br><br>";
+						 ?>
                         <form class="form-horizontal" action="<?php echo $this->config->base_url();?>index.php/update_userdetails/education_work" method="post" role="form">
                           
                           <div class="form-group">
@@ -389,8 +396,10 @@
                 </div>
 
               <!-- End of Work & Education -->
-              <div class="tab-pane fade" id="profile" style="height:400px">
+            <div class="tab-pane fade" id="profile" style="height:400px">
 			<?php $this->load->helper('form');
+			 if(isset($error))
+			 echo $error."<br><br>";
              echo form_open_multipart(''.$this->config->base_url().'index.php/update_userdetails/profilepic');
                   
                 echo "<div class='col-md-4' style='margin-top:40px;margin-left:100px'>";
@@ -408,15 +417,19 @@
                         </div>
                     </div>
                     <div class='col-md-5 pull-right' style='margin-top:30px;'>
-                    <img src='../assets/uploads/profilepics/".$profilepic."' alt=''>
-                    </div>";
+                    <img src='".$this->config->base_url()."assets/uploads/profilepics/".$profilepic."' width='262px' height='207px' alt='Status Owner'>
+                    </div>
+					</form>";
 			  ?>
               </div>
               <!-- End of Profile Photo Change -->
-
-              <div class="tab-pane fade" id="location">
+				<div class="tab-pane fade" id="location">
                   <div class="col-md-8 ">
                        <h3>Home Town</h3>
+                       <?php
+					   if(isset($error))
+			 echo $error."<br><br>";
+			 ?>
                         <form class="form-horizontal" action="<?php echo $this->config->base_url();?>index.php/update_userdetails/address" method="post" role="form">
                           
                           <div class="form-group">
@@ -476,6 +489,7 @@
                        </form>
                     </div>
                 </div>
+             
                </div>
             </div>
           </div>
@@ -485,7 +499,6 @@
               <p style="text-indent:500px;border-top:1px solid rgba(225, 225, 225, 1);padding-top:10px;">Copyright &copy; Phoenix Partners</p>
           </div>
 </body>
-<script type="text/javascript" src="./assets/js/bootstrap.js" ></script>
-<script type="text/javascript" src="./assets/js/jquery-1.9.0.min.js" ></script>
-<script type="text/javascript" src="./assets/js/jquery-1.10.2.js" ></script>
+<script type="text/javascript" src="<?php echo $this->config->base_url();?>assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo $this->config->base_url();?>assets/js/bootstrap.js"></script>
 </html>

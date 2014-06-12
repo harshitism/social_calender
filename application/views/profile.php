@@ -12,8 +12,6 @@
     <title>User Profile</title>
 
     <!-- Bootstrap core CSS -->
-   <link href="./assets/css/bootstrap.css" rel="stylesheet" >
-    <link href="./assets/css/bootstrap.min.css" rel="stylesheet" >
 
     <link href="<?php echo $this->config->base_url();?>assets/css/bootstrap.css" rel="stylesheet" >
     <link href="<?php echo $this->config->base_url();?>assets/css/bootstrap.min.css" rel="stylesheet" >
@@ -136,7 +134,7 @@
 			and the list of all the followers and the persons followed by the person-->	
 			<div class="col-md-3">
 				<p>
-					<img src="../assets/uploads/profilepics/<?php echo $profilepic?>" width="262px" height="207px" alt="Status Owner"  />
+					<img src="<?php echo $this->config->base_url();?>assets/uploads/profilepics/<?php echo $profilepic?>" width="262px" height="207px" alt="Status Owner"  />
 				</p>
 				
 				<div class="btn-group btn-group-justified">

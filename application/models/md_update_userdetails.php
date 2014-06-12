@@ -11,82 +11,90 @@ class Md_update_userdetails extends CI_Model {
 		$newinfo = explode(",",$param);
 		if($newinfo[7]==$newinfo[8])
 		{
-			if(filter_var($newinfo[3], FILTER_VALIDATE_EMAIL))
+			$name = $newinfo[0].$newinfo[1].$newinfo[2];
+			if(ctype_alpha($name))
 			{
-				$this->db->where('email',$newinfo[3]);
-				$this->db->select('*');
-				$email_query = $this->db->get('user');
-				if($email_query->num_rows()==0)
-				$email = 0;
-				else
+				if(filter_var($newinfo[3], FILTER_VALIDATE_EMAIL))
 				{
-					if($email_query->num_rows()==1)
-					{
-						foreach($email_query->result() as $row)
-						$uid = $row->user_id;
-						if($uid==$user_id)
-						$email = 1;
-						else
-						$email = 2;
-					}
+					$this->db->where('email',$newinfo[3]);
+					$this->db->select('*');
+					$email_query = $this->db->get('user');
+					if($email_query->num_rows()==0)
+					$email = 0;
 					else
-					$email = 3;
-				}
-				if($email==0||$email==1)
-				{
-					if(is_numeric($newinfo[4]))
 					{
-						$this->db->where('contact',$newinfo[4]);
-						$this->db->select('*');
-						$contact_query = $this->db->get('user');
-						if($contact_query->num_rows()==0)
-						$contact = 0;
-						else
+						if($email_query->num_rows()==1)
 						{
-							if($contact_query->num_rows()==1)
+							foreach($email_query->result() as $row)
+							$uid = $row->user_id;
+							if($uid==$user_id)
+							$email = 1;
+							else
+							$email = 2;
+						}
+						else
+						$email = 3;
+					}
+					if($email==0||$email==1)
+					{
+						if(is_numeric($newinfo[4]))
+						{
+							$this->db->where('contact',$newinfo[4]);
+							$this->db->select('*');
+							$contact_query = $this->db->get('user');
+							if($contact_query->num_rows()==0)
+							$contact = 0;
+							else
 							{
-								foreach($contact_query->result() as $row)
-								$uid = $row->user_id;
-								if($uid==$user_id)
-								$contact = 1;
+								if($contact_query->num_rows()==1)
+								{
+									foreach($contact_query->result() as $row)
+									$uid = $row->user_id;
+									if($uid==$user_id)
+									$contact = 1;
+									else
+									$contact = 2;
+								}
 								else
-								$contact = 2;
+								$contact = 3;
+							}
+							if($contact==0||$contact==1)
+							{
+								$newarr = array('first_name' => $newinfo[0],
+								'middle_name' => $newinfo[1],
+								'last_name' => $newinfo[2],
+								'email' => $newinfo[3],
+								'contact' => $newinfo[4],
+								'dob' => $newinfo[5],
+								'gender' => $newinfo[6],
+								'password' => $newinfo[7]);
+								$this->db->where('user_id',$user_id);
+								$this->db->update('user',$newarr);
+								return 1;
 							}
 							else
-							$contact = 3;
-						}
-						if($contact==0||$contact==1)
-						{
-							$newarr = array('first_name' => $newinfo[0],
-							'middle_name' => $newinfo[1],
-							'last_name' => $newinfo[2],
-							'email' => $newinfo[3],
-							'contact' => $newinfo[4],
-							'dob' => $newinfo[5],
-							'gender' => $newinfo[6],
-							'password' => $newinfo[7]);
-							$this->db->where('user_id',$user_id);
-							$this->db->update('user',$newarr);
-							return 1;
+							{
+								return 6;	//contact already registered
+							}
 						}
 						else
 						{
-							return 6;	//contact already registered
+							return 5;	//contact not valid
 						}
 					}
 					else
 					{
-						return 5;	//contact not valid
+						return 4;	//email already registered
 					}
 				}
 				else
 				{
-					return 4;	//email already registered
+					return 3;	//email not valid
 				}
 			}
 			else
 			{
-				return 3;	//email not valid
+				return 7;		//name not valid
 			}
 		}
 		else
@@ -140,6 +148,39 @@ class Md_update_userdetails extends CI_Model {
 			'cur_state' => $newinfo[3],
 			'cur_city' => $newinfo[4],
 			'cur_pincode' => $newinfo[5]);
+		$this->db->where('user_id',$user_id);
+		$this->db->select('*');
+		$res = $this->db->get('user_details');
+		if($res->num_rows()==0)
+		{
+			$this->db->where('user_id',$user_id);
+			$this->db->insert('user_details',$arr);
+			if($this->db->affected_rows()==1)
+			return 1;
+			else
+			return 0;
+		}
+		else
+		{
+			$this->db->where('user_id',$user_id);
+			$this->db->update('user_details',$arr);
+			return 1;
+		}
+		return 0;
+	}
+	public function interests($param)
+	{
+		$this->load->database();
+		$this->load->library('session');
+		$user_id = $this->session->userdata('user_id');
+		$newinfo = explode(",",$param);
+		$arr = array('personal_webpage' => $newinfo[0],
+			'nickname' => $newinfo[1],
+			'hobbies' => $newinfo[2],
+			'fav_songs' => $newinfo[3],
+			'fav_tv_series' => $newinfo[4],
+			'fav_movies' => $newinfo[5],
+			'fav_sports' => $newinfo[6]);
 		$this->db->where('user_id',$user_id);
 		$this->db->select('*');
 		$res = $this->db->get('user_details');

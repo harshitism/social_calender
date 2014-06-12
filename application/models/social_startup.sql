@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 06, 2014 at 04:18 AM
+-- Generation Time: Jun 12, 2014 at 05:36 AM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.12
 
@@ -184,14 +184,6 @@ CREATE TABLE IF NOT EXISTS `profile_pic` (
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `profile_pic`
---
-
-INSERT INTO `profile_pic` (`user_id`, `pic_name`) VALUES
-(1, 'male.png'),
-(2, 'Female.png');
-
 -- --------------------------------------------------------
 
 --
@@ -210,16 +202,9 @@ CREATE TABLE IF NOT EXISTS `user` (
   `gender` varchar(10) NOT NULL,
   `hash` varchar(25) NOT NULL,
   `verify` varchar(10) NOT NULL,
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`user_id`, `first_name`, `middle_name`, `last_name`, `email`, `dob`, `contact`, `password`, `gender`, `hash`, `verify`) VALUES
-(1, 'Ravi', 'jeetesh', 'Shaukiya', 'Ravisoni1776@gmail.com', '10/03/1994', '7352208956', 'asdfg', 'Male', '11b9842e0a271ff252c1903e7', '1/1/1'),
-(2, 'pankaj', 'kumar', 'Swarnkar', 'Ravibayana@gmail.com', '12-05-1994', '9785753328', 'asdfgh', 'Female', 'f74909ace68e51891440e4da0', '1/1/1');
+  PRIMARY KEY (`user_id`),
+  FULLTEXT KEY `first_name` (`first_name`,`middle_name`,`last_name`,`email`,`contact`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -238,10 +223,17 @@ CREATE TABLE IF NOT EXISTS `user_details` (
   `work_email` varchar(100) NOT NULL,
   `home_state` varchar(50) NOT NULL,
   `home_city` varchar(50) NOT NULL,
-  `home_pincode` int(10) NOT NULL,
+  `home_pincode` varchar(10) NOT NULL,
   `cur_state` varchar(50) NOT NULL,
   `cur_city` varchar(50) NOT NULL,
-  `cur_pincode` int(10) NOT NULL,
+  `cur_pincode` varchar(10) NOT NULL,
+  `personal_webpage` varchar(100) NOT NULL,
+  `nickname` varchar(30) NOT NULL,
+  `hobbies` varchar(250) NOT NULL,
+  `fav_songs` varchar(500) NOT NULL,
+  `fav_tv_series` varchar(250) NOT NULL,
+  `fav_movies` varchar(250) NOT NULL,
+  `fav_sports` varchar(200) NOT NULL,
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

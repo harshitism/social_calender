@@ -44,7 +44,7 @@ class Update_userdetails extends CI_Controller {
 			}
 			else if($res==3)
 			{
-				redirect('/editprofile?error2=true');
+				redirect('/editprofile.php?error2=true');
 			}
 			else if($res==4)
 			{
@@ -61,6 +61,10 @@ class Update_userdetails extends CI_Controller {
 			else if($res==0)
 			{
 				redirect('/editprofile?error6=true');
+			}
+			else if($res==7)
+			{
+				redirect('/editprofile?error8=true');
 			}
 			else
 			{
@@ -134,6 +138,27 @@ class Update_userdetails extends CI_Controller {
 			redirect('/editprofile?validation_error=true');
 		}
 		else if($this->Md_update_userdetails->address($param))
+		{
+			redirect('/editprofile?update=true');
+		}
+		else
+		{
+			redirect('/editprofile?error6=true');
+		}
+	}
+	public function interests()
+	{
+		$this->load->helper(array('form', 'url'));
+		$parameter = array('personal_webpage' => $this->input->post('personal_webpage'),
+		'nickname' => $this->input->post('nickname'),
+		'hobbies' => $this->input->post('hobbies'),
+		'fav_songs' => $this->input->post('fav_songs'),
+		'fav_tv_series' => $this->input->post('fav_tv_series'),
+		'fav_movies' => $this->input->post('fav_movies'),
+		'fav_sports' => $this->input->post('fav_sports'));
+		$this->load->model('Md_update_userdetails');
+		$param = implode(",",$parameter);
+		if($this->Md_update_userdetails->interests($param))
 		{
 			redirect('/editprofile?update=true');
 		}

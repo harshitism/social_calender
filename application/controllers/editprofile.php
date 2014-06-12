@@ -18,7 +18,7 @@ class Editprofile extends CI_Controller {
 		$data['full_name'] = $data['full_name']." ".$info['middle_name'];
 		if($info['last_name']!="")
 		$data['full_name'] = $data['full_name']." ".$info['last_name'];
-		$data['email'] = $this->session->userdata('user_name');
+		$data['email'] = $info['email'];
 		$data['contact'] = $info['contact'];
 		$data['dob'] = $info['dob'];
 		$data['gender'] = $info['gender'];
@@ -35,6 +35,13 @@ class Editprofile extends CI_Controller {
 		$data['cur_state'] = $details['cur_state'];
 		$data['cur_city'] = $details['cur_city'];
 		$data['cur_pincode'] = $details['cur_pincode'];
+		$data['personal_webpage'] = $details['personal_webpage'];
+		$data['nickname'] = $details['nickname'];
+		$data['hobbies'] = $details['hobbies'];
+		$data['fav_songs'] = $details['fav_songs'];
+		$data['fav_tv_series'] = $details['fav_tv_series'];
+		$data['fav_movies'] = $details['fav_movies'];
+		$data['fav_sports'] = $details['fav_sports'];
 		$data['profilepic'] = $pic;
 		$this->load->helper(array('form', 'url'));
 		if($this->input->get('password_error'))
@@ -68,6 +75,10 @@ class Editprofile extends CI_Controller {
 		if($this->input->get('error6'))
 		{
 			$data['error'] = "Failed to Update!!!";
+		}
+		if($this->input->get('error8'))
+		{
+			$data['error'] = "Name should have only characters!!!";
 		}
 		if($this->input->get('update'))
 		{
